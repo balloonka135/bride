@@ -1,0 +1,90 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% block title %}<title>Welcome to Adeline</title>{% endblock %}
+    <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}">
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+    <link rel="stylesheet" href="{% static "js/bootstrap.min.js" %}">
+</head>
+
+<body>
+    <header id="header">
+        <div class="container container-inner">
+            <div class="row justify-content-between">
+                <div class="header-widget widget-text header-left-from-logo-widget">
+                    <a href="" class="menu-icon-link">
+                        <img src="" alt="Menu">
+                        <span>Menu</span>
+                    </a>
+                    <a href="" class="liked-icon-link">
+                        <img src="" alt="Liked">
+                        <span>Liked</span>
+                    </a>
+                </div>
+
+                <div class="logo-wrapper">
+                    <a href="adeline.com">
+                        <img class="normal" src="" alt="Adeline">
+                        <img class="mobile" src="" alt="Adeline">
+                    </a>
+                </div>
+
+                <div class="header-widget widget-text header-right-from-logo-widget">
+                    <a href="" class="search-icon-link">
+                        <img src="" alt="Search">
+                        <span>Search</span>
+                    </a>
+                    <a href="" class="location-icon-link">
+                        <img src="" alt="Location">
+                        <span>Location</span>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <section class="container-fluid content">
+        {% block content %}{% endblock %}
+    </section>
+
+    <footer class="footer-part">
+        <div class="container-fluid">
+            <div class="row justify-content-around main-footer">
+                <div class="one-quater">
+                    <img src="" alt="Logo">
+                </div>
+                <div class="one-quater">
+                    <h3>General</h3>
+                    <ul class="footer-one">
+                        <li class="footer-menu-item"><a href="">FAQ's</a></li>
+                        <li class="footer-menu-item"><a href="">Privacy policy</a></li>
+                    </ul>
+                </div>
+                <div class="one-quater">
+                    <h3>About</h3>
+                    <ul class="footer-two">
+                        <li class="footer-menu-item"><a href="">About</a></li>
+                        <li class="footer-menu-item"><a href="">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="one-quater">
+                    <h3>Follow</h3>
+                    <ul>
+                        <li><a href=""><i class="facebook-icon" aria-hidden="true"></i></a></li>
+                        <li><a href=""><i class="instagram-icon" aria-hidden="true"></i></a></li>
+                        <li><a href=""><i class="youtube-icon" aria-hidden="true"></i></a></li>
+                        <li><a href=""><i class="pinteres-icon" aria-hidden="true"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row justify-content-around copy-center">
+                <p>© 2018 All rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

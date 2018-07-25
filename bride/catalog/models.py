@@ -2,6 +2,7 @@
 from __future__ import unicode_literals
 
 # from django.db import models
+from django.urls import reverse
 from djongo import models
 
 
@@ -17,6 +18,9 @@ class Category(models.Model):
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse('catalog:ProductListByCategory', args=[self.slug])
 
 
 # Wedding dress
@@ -45,6 +49,9 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse('catalog:ProductDetail', args=[self.id, self.slug])
 
 
 # to start mongo
