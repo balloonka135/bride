@@ -3,13 +3,21 @@ from __future__ import unicode_literals
 
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView, DetailView
-from .models import Category, Product
+from .models import Category, Product, Shape, Style, Fabric, Collection
+
+
+def index(request):
+    return render(request, 'catalog/index.html', {})
 
 
 def productList(request, category_slug=None):
     category = None
     categories = Category.objects.all()
+    collections = Collection.objects.all()
     products = Product.objects.all()
+    shapes = Shape.objects.all()
+    styles = Style.objects.all()
+    fabrics = Fabric.objects.all()
 
     if category_slug:
         category = get_object_or_404(Category, slug=category_slug)
@@ -17,7 +25,11 @@ def productList(request, category_slug=None):
     return render(request, 'catalog/product_list.html', {
         'category': category,
         'categories': categories,
-        'products': products
+        'collections': collections,
+        'products': products,
+        'shapes': shapes, 
+        'styles': styles, 
+        'fabrics': fabrics
     })
 
 

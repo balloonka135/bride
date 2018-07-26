@@ -8,5 +8,128 @@
 {% endblock %}
 
 {% block content %}
+    <a href="#" class="on/off" id="back-to-top">
+        <span class="icon-area">
+            <span class="arrow-up"></span>
+            <span class="overlay"></span>
+        </span>
+    </a>
+    <div class="title-outer">
+        <div class="container">
+            <div class="title-subtitle-holder">
+                <h1><span>{{ category.name }}</span></h1>
+                <div class="subtitle">
+                    <a href="adeline.com">Home</a>
+                    <span class="delimeter">&nbsp;/&nbsp;</span>
+                    <span class="current">{{ category.name }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="catalog-list">
+        <div class="container">
+            <div class="column1">
+                <aside class="sidebar">
+                    <div class="product-search">
+                        <form action="adeline.com" method="get" id="search-form">
+                            <div>
+                                <label for="s" class="search-form-text">Search for:</label>
+                                <input type="text" value="s" id="s" placeholder="Enter style">
+                                <input type="submit" id="search-submit"> <!-- search icon -->
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="widget-filter-1">
+                        <h4>Collection</h4>
+                        <ul>
+                        {% for coll in collections %}
+                            <li><a href="{{ coll.get_absolute_url }}">{{ coll.name }}</a></li>
+                        {% endfor %}    
+                        </ul>
+                    </div>
+                    <div class="widget-filter-1">
+                        <h4>Silhouette</h4>
+                        <ul>
+                        {% for shape in shapes %}
+                            <li><a href="{{ shape.get_absolute_url }}">{{ shape.name }}</a></li>
+                        {% endfor %}    
+                        </ul>
+                    </div>
+                    <div class="widget-filter-1">
+                        <h4>Style</h4>
+                        <ul>
+                        {% for style in styles %}
+                            <li><a href="{{ style.get_absolute_url }}">{{ style.name }}</a></li>
+                        {% endfor %}    
+                        </ul>
+                    </div>
+                    <div class="widget-filter-1">
+                        <h4>Fabric</h4>
+                        <ul>
+                        {% for fabric in fabrics %}
+                            <li><a href="{{ fabric.get_absolute_url }}">{{ fabric.name }}</a></li>
+                        {% endfor %}    
+                        </ul>
+                    </div>
+                </aside>
+            </div>
+
+            <div class="column2">
+                <div class="term-description">
+                    <h2>Browse our {{ category.name }}</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem molestiae facilis, harum aliquam iusto aliquid ut optio beatae accusamus ipsam cumque itaque voluptate eum blanditiis? Iusto nemo ad, quo amet.</p>
+                </div>
+                <ul class="products hover-type">
+                    {% for product in products %}
+                        <li class="product-post">
+                            <div class="product-section">
+                                <a href="{{ product.get_absolute_url }}">
+                                    <span class="image-wrapper">
+                                        <img width="" height="" src="{% if product.image %}{{ product.image.url }}{% else %}{% static "img/no-image.jpg"%}{% endif %}" alt="">
+                                    </span>
+                                </a>
+                            </div>
+                            <div class="product-info-box">
+                                <a href="{{ product.get_absolute_url }}">
+                                    <span class="product-title">{{ product.name }}</span>
+                                </a>
+                                <div class="view-dress-button">
+                                    <a href="{{ product.get_absolute_url }}" class="button view-dress-button">View Dress</a>
+                                </div>
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+                <!-- ADD PAGINATION -->
+                <nav class="list-pagination">
+                    <ul class="page-numbers">
+                        <li><a href="" class="prev page-numbers"><i class="angle-prev"></i></a></li>
+                        <li><a href="" class="page-numbers">1</a></li>
+                        <li><span aria-current="page" class="page-numbers current">2</span></li>
+                        <li><a href="" class="next page-numbers"><i class="angle-next"></i></a></li>
+                    </ul>
+                </nav>
+                <div class="product-category-bottom">
+                    <h2 class="description-title">{{ category.name }}</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure cupiditate modi, quos quidem et ullam! Laboriosam eligendi dolores ad cupiditate consectetur odit, error nihil porro eius, alias aspernatur, voluptatem possimus.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 {% endblock %}
