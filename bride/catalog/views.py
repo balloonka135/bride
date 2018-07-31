@@ -34,9 +34,11 @@ def productList(request, category_slug=None):
 
 
 def productDetail(request, id, slug):
-    product = get_object_or_404(Product, pk=id, slug=slug)
+    product = get_object_or_404(Product, id=id, slug=slug)
+    rec_products = Product.objects.filter(collection=product.collection)  # products from same collection
     return render(request, 'catalog/product_detail.html', {
-        'product': product
+        'product': product, 
+        'related_products': rec_products
     })
 
 

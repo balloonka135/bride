@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    Contacts
+{% endblock %}
+
+{% block content %}
+    <div class="page-header">
+        <div class="title-area">
+            <div class="container">
+                <div class="title-holder">
+                    <h1>Contacts</h1>
+                </div>
+                <span class="subtitle-sep">
+                    <span class="sep-line-before"></span>
+                    <span class="sep-content">Keep in touch</span>
+                    <span class="sep-line-after"></span>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="contacts-content">
+        <div class="container">
+            <div class="contacts-info">
+                <h2 class="contacts-info-header">Our contacts:</h2>
+                <p>Phone: +83748374976</p>
+                <p>Address: Kiev, Ukraine</p>
+                <p>Working hours: 10 a.m. - 7 p.m.</p>
+                <p>e-mail: adeline_mail@gmail.com </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="send-mail">
+        <div class="container">
+            <div class="one-half">
+                <p><img src="" alt="" class="contact-image"></p>
+            </div>
+            <div class="one-half">
+                <!-- ADD ACTION -->
+                <form action="" method="post">
+                    <div class="form-header">
+                        <h3>Send us a message</h3>
+                    </div>
+                    <div class="form-body">
+                        <ul class="form-fields">
+                            <li class="form-field" id="f_1">
+                                <label for="" class="form-label">Name<span class="field_required"></span></label>
+                                <div class="input-container">
+                                    <input type="text" class="input-field" placeholder="Name" aria-required="true" aria-invalid="false">
+                                </div>
+                            </li>
+                            <li class="form-field" id="f_2">
+                                <label for="" class="form-label">Phone<span class="field_required"></span></label>
+                                <div class="input-container">
+                                    <input type="text" class="input-field" placeholder="Phone" aria-required="true" aria-invalid="false">
+                                </div>
+                            </li>
+                            <li class="form-field" id="f_3">
+                                <label for="" class="form-label">Email<span class="field_required"></span></label>
+                                <div class="input-container">
+                                    <input type="text" class="input-field" placeholder="Email" aria-required="true" aria-invalid="false">
+                                </div>
+                            </li>
+                            <li class="form-field" id="f_4">
+                                <label for="" class="form-label">Message<span class="field_required"></span></label>
+                                <div class="input-container">
+                                    <textarea name="input_4" id="input_4" cols="50" rows="10" class="textarea-field" aria-required="true" aria-invalid="false"></textarea>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="form-footer">
+                            <input type="submit" id="form-submit-button" class="main-button" value="Submit" onclick="" onkeypress="">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="appoint-banner">
+        <div class="container">
+            <div class="background-image"></div>
+            <div class="banner-text">
+                <h2>Book an appointment</h2>
+                <a href="" class="main-button">book</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
