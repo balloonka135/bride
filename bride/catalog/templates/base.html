@@ -5,49 +5,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {% block title %}<title>Welcome to Adeline</title>{% endblock %}
-    <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="{% static "css/style.css" %}">
-    <link rel="stylesheet" href="{% static "js/bootstrap.min.js" %}">
+    
 </head>
 
 <body>
     <header id="header">
-        <div class="container container-inner">
-            <div class="row justify-content-between">
-                <div class="header-widget widget-text header-left-from-logo-widget">
-                    <a href="" class="menu-icon-link">
-                        <img src="" alt="Menu">
-                        <span>Menu</span>
-                    </a>
-                    <a href="" class="liked-icon-link">
-                        <img src="" alt="Liked">
-                        <span>Liked</span>
-                    </a>
-                </div>
+        <div class="container no-padding">
+            <div class="container-inner clearfix">
+                <div class="header-inner">
+                    <div class="header-widget widget-text header-left-from-logo-widget">
+                        <a href="" class="icon-link">
+                            <i class="fa fa-bars fa-lg"></i>
+                            <span>Menu</span>
+                        </a>
+                        <a href="" class="icon-link">
+                            <i class="fa fa-lg fa-heart"></i>
+                            <span>Liked</span>
+                        </a>
+                    </div>
 
-                <div class="logo-wrapper">
-                    <a href="adeline.com">
-                        <img class="normal" src="" alt="Adeline">
-                    </a>
-                </div>
+                    <div class="logo-wrapper">
+                        <a href="adeline.com">
+                            <img class="logo-header-img" src="{% static "img/new_logo.png" %}" alt="Adeline">
+                        </a>
+                    </div>
 
-                <div class="header-widget widget-text header-right-from-logo-widget">
-                    <a href="" class="search-icon-link">
-                        <img src="" alt="Search">
-                        <span>Search</span>
-                    </a>
-                    <a href="" class="location-icon-link">
-                        <img src="" alt="Location">
-                        <span>Location</span>
-                    </a>
+                    <div class="header-widget widget-text header-right-from-logo-widget">
+                        <a href="" class="icon-link">
+                            <i class="fa fa-lg fa-search"></i>
+                            <span>Search</span>
+                        </a>
+                        <a href="" class="icon-link">
+                            <i class="fa fa-lg fa-map-marker-alt"></i>
+                            <span>Location</span>
+                        </a>
+                    </div>
                 </div>
             </div>
 
-            <div class="row">
+            <div class="header-menu-bottom clearfix">
                 <nav class="main_menu drop_down">
-                    <ul class="header-menu">
+                    <ul class="header-menu clearfix" style="margin-bottom: 0px;">
                         <li class="menu-item" id="nav-menu-1">
-                            <a href="wedding_dresses">
+                            <a href="wedding_dresses" class="drop-button">
                                 <span class="item_inner">
                                     <span class="item_text">Wedding Dresses</span>
                                 </span>
@@ -56,26 +61,26 @@
                             <div class="drop_down_list">
                                 <div class="inner">
                                     <ul>
-                                        <li id="nav-menu-item-1" class="menu-item">
+                                        <li class="nav-menu-item">
                                             <a href="wed_collection#1">
                                                 <span class="item_inner">
-                                                    <span class="item_text">Wedding Dresses</span>
+                                                    <span class="item_text">Collection</span>
                                                 </span>
                                                 <span class="animated_line"></span>
                                             </a>
                                         </li>
-                                        <li id="nav-menu-item-2" class="menu-item">
+                                        <li class="nav-menu-item">
                                             <a href="wed_collection#1">
                                                 <span class="item_inner">
-                                                    <span class="item_text">Wedding Dresses</span>
+                                                    <span class="item_text">Collection</span>
                                                 </span>
                                                 <span class="animated_line"></span>
                                             </a>
                                         </li>
-                                        <li id="nav-menu-item-3" class="menu-item">
+                                        <li class="nav-menu-item">
                                             <a href="wed_collection#1">
                                                 <span class="item_inner">
-                                                    <span class="item_text">Wedding Dresses</span>
+                                                    <span class="item_text">Collection</span>
                                                 </span>
                                                 <span class="animated_line"></span>
                                             </a>
@@ -83,9 +88,8 @@
                                     </ul>
                                 </div>
                             </div>
-                        </li>
-                        <li class="menu-item" id="nav-menu-2">
-                            <a href="wedding_dresses">
+                        </li><li class="menu-item" id="nav-menu-2">
+                            <a href="wedding_dresses" class="drop-button">
                                 <span class="item_inner">
                                     <span class="item_text">Wedding Dresses</span>
                                 </span>
@@ -94,26 +98,26 @@
                             <div class="drop_down_list">
                                 <div class="inner">
                                     <ul>
-                                        <li id="nav-menu-item-1" class="menu-item">
+                                        <li class="nav-menu-item">
                                             <a href="wed_collection#1">
                                                 <span class="item_inner">
-                                                    <span class="item_text">Wedding Dresses</span>
+                                                    <span class="item_text">Collection</span>
                                                 </span>
                                                 <span class="animated_line"></span>
                                             </a>
                                         </li>
-                                        <li id="nav-menu-item-2" class="menu-item">
+                                        <li class="nav-menu-item">
                                             <a href="wed_collection#1">
                                                 <span class="item_inner">
-                                                    <span class="item_text">Wedding Dresses</span>
+                                                    <span class="item_text">Collection</span>
                                                 </span>
                                                 <span class="animated_line"></span>
                                             </a>
                                         </li>
-                                        <li id="nav-menu-item-3" class="menu-item">
+                                        <li class="nav-menu-item">
                                             <a href="wed_collection#1">
                                                 <span class="item_inner">
-                                                    <span class="item_text">Wedding Dresses</span>
+                                                    <span class="item_text">Collection</span>
                                                 </span>
                                                 <span class="animated_line"></span>
                                             </a>
@@ -121,9 +125,8 @@
                                     </ul>
                                 </div>
                             </div>
-                        </li>
-                        <li class="menu-item" id="nav-menu-3">
-                            <a href="wedding_dresses">
+                        </li><li class="menu-item" id="nav-menu-3">
+                            <a href="wedding_dresses" class="drop-button">
                                 <span class="item_inner">
                                     <span class="item_text">Wedding Dresses</span>
                                 </span>
@@ -132,26 +135,26 @@
                             <div class="drop_down_list">
                                 <div class="inner">
                                     <ul>
-                                        <li id="nav-menu-item-1" class="menu-item">
+                                        <li class="nav-menu-item">
                                             <a href="wed_collection#1">
                                                 <span class="item_inner">
-                                                    <span class="item_text">Wedding Dresses</span>
+                                                    <span class="item_text">Collection</span>
                                                 </span>
                                                 <span class="animated_line"></span>
                                             </a>
                                         </li>
-                                        <li id="nav-menu-item-2" class="menu-item">
+                                        <li class="nav-menu-item">
                                             <a href="wed_collection#1">
                                                 <span class="item_inner">
-                                                    <span class="item_text">Wedding Dresses</span>
+                                                    <span class="item_text">Collection</span>
                                                 </span>
                                                 <span class="animated_line"></span>
                                             </a>
                                         </li>
-                                        <li id="nav-menu-item-3" class="menu-item">
+                                        <li class="nav-menu-item">
                                             <a href="wed_collection#1">
                                                 <span class="item_inner">
-                                                    <span class="item_text">Wedding Dresses</span>
+                                                    <span class="item_text">Collection</span>
                                                 </span>
                                                 <span class="animated_line"></span>
                                             </a>
@@ -159,9 +162,8 @@
                                     </ul>
                                 </div>
                             </div>
-                        </li>
-                        <li class="menu-item" id="nav-menu-4">
-                            <a href="wedding_dresses">
+                        </li><li class="menu-item" id="nav-menu-4">
+                            <a href="wedding_dresses" class="drop-button">
                                 <span class="item_inner">
                                     <span class="item_text">Wedding Dresses</span>
                                 </span>
@@ -170,26 +172,26 @@
                             <div class="drop_down_list">
                                 <div class="inner">
                                     <ul>
-                                        <li id="nav-menu-item-1" class="menu-item">
+                                        <li class="nav-menu-item">
                                             <a href="wed_collection#1">
                                                 <span class="item_inner">
-                                                    <span class="item_text">Wedding Dresses</span>
+                                                    <span class="item_text">Collection</span>
                                                 </span>
                                                 <span class="animated_line"></span>
                                             </a>
                                         </li>
-                                        <li id="nav-menu-item-2" class="menu-item">
+                                        <li class="nav-menu-item">
                                             <a href="wed_collection#1">
                                                 <span class="item_inner">
-                                                    <span class="item_text">Wedding Dresses</span>
+                                                    <span class="item_text">Collection</span>
                                                 </span>
                                                 <span class="animated_line"></span>
                                             </a>
                                         </li>
-                                        <li id="nav-menu-item-3" class="menu-item">
+                                        <li class="nav-menu-item">
                                             <a href="wed_collection#1">
                                                 <span class="item_inner">
-                                                    <span class="item_text">Wedding Dresses</span>
+                                                    <span class="item_text">Collection</span>
                                                 </span>
                                                 <span class="animated_line"></span>
                                             </a>
@@ -197,9 +199,8 @@
                                     </ul>
                                 </div>
                             </div>
-                        </li>
-                        <li class="menu-item" id="nav-menu-5">
-                            <a href="wedding_dresses">
+                        </li><li class="menu-item" id="nav-menu-5">
+                            <a href="wedding_dresses" class="drop-button">
                                 <span class="item_inner">
                                     <span class="item_text">Wedding Dresses</span>
                                 </span>
@@ -208,26 +209,137 @@
                             <div class="drop_down_list">
                                 <div class="inner">
                                     <ul>
-                                        <li id="nav-menu-item-1" class="menu-item">
+                                        <li class="nav-menu-item">
                                             <a href="wed_collection#1">
                                                 <span class="item_inner">
-                                                    <span class="item_text">Wedding Dresses</span>
+                                                    <span class="item_text">Collection</span>
                                                 </span>
                                                 <span class="animated_line"></span>
                                             </a>
                                         </li>
-                                        <li id="nav-menu-item-2" class="menu-item">
+                                        <li class="nav-menu-item">
                                             <a href="wed_collection#1">
                                                 <span class="item_inner">
-                                                    <span class="item_text">Wedding Dresses</span>
+                                                    <span class="item_text">Collection</span>
                                                 </span>
                                                 <span class="animated_line"></span>
                                             </a>
                                         </li>
-                                        <li id="nav-menu-item-3" class="menu-item">
+                                        <li class="nav-menu-item">
                                             <a href="wed_collection#1">
                                                 <span class="item_inner">
-                                                    <span class="item_text">Wedding Dresses</span>
+                                                    <span class="item_text">Collection</span>
+                                                </span>
+                                                <span class="animated_line"></span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li><li class="menu-item" id="nav-menu-6">
+                            <a href="wedding_dresses" class="drop-button">
+                                <span class="item_inner">
+                                    <span class="item_text">Wedding Dresses</span>
+                                </span>
+                                <span class="animated_line"></span>
+                            </a>
+                            <div class="drop_down_list">
+                                <div class="inner">
+                                    <ul>
+                                        <li class="nav-menu-item">
+                                            <a href="wed_collection#1">
+                                                <span class="item_inner">
+                                                    <span class="item_text">Collection</span>
+                                                </span>
+                                                <span class="animated_line"></span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="wed_collection#1">
+                                                <span class="item_inner">
+                                                    <span class="item_text">Collection</span>
+                                                </span>
+                                                <span class="animated_line"></span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="wed_collection#1">
+                                                <span class="item_inner">
+                                                    <span class="item_text">Collection</span>
+                                                </span>
+                                                <span class="animated_line"></span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li><li class="menu-item" id="nav-menu-7">
+                            <a href="wedding_dresses" class="drop-button">
+                                <span class="item_inner">
+                                    <span class="item_text">Wedding Dresses</span>
+                                </span>
+                                <span class="animated_line"></span>
+                            </a>
+                            <div class="drop_down_list">
+                                <div class="inner">
+                                    <ul>
+                                        <li class="nav-menu-item">
+                                            <a href="wed_collection#1">
+                                                <span class="item_inner">
+                                                    <span class="item_text">Collection</span>
+                                                </span>
+                                                <span class="animated_line"></span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="wed_collection#1">
+                                                <span class="item_inner">
+                                                    <span class="item_text">Collection</span>
+                                                </span>
+                                                <span class="animated_line"></span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="wed_collection#1">
+                                                <span class="item_inner">
+                                                    <span class="item_text">Collection</span>
+                                                </span>
+                                                <span class="animated_line"></span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li><li class="menu-item" id="nav-menu-8">
+                            <a href="wedding_dresses" class="drop-button">
+                                <span class="item_inner">
+                                    <span class="item_text">Wedding Dresses</span>
+                                </span>
+                                <span class="animated_line"></span>
+                            </a>
+                            <div class="drop_down_list">
+                                <div class="inner">
+                                    <ul>
+                                        <li class="nav-menu-item">
+                                            <a href="wed_collection#1">
+                                                <span class="item_inner">
+                                                    <span class="item_text">Collection</span>
+                                                </span>
+                                                <span class="animated_line"></span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="wed_collection#1">
+                                                <span class="item_inner">
+                                                    <span class="item_text">Collection</span>
+                                                </span>
+                                                <span class="animated_line"></span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-menu-item">
+                                            <a href="wed_collection#1">
+                                                <span class="item_inner">
+                                                    <span class="item_text">Collection</span>
                                                 </span>
                                                 <span class="animated_line"></span>
                                             </a>
@@ -250,7 +362,7 @@
     </a>
 
     <section class="content">
-        <div class="container-fluid">
+        <div class="container">
             {% block content %}{% endblock %}
         </div>
     </section>

@@ -1,0 +1,296 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+@media only screen and (min-width : 1200px) {
+
+    .container { width: 1410px; } 
+
+}
+
+/* colors */
+/* background-color: rgb(57, 56, 55); main grey */
+/* background-color: rgb(38,37,37); dark grey */
+/* color: rgb(224,178,139); beige */
+
+
+
+/* carousel */
+
+.carousel {
+  /* any dimensions are fine, it can be responsive with max-width */
+  width: 100%;
+  height: 650px;
+  position: absolute;
+  left: 0;
+  margin-bottom: 200px;
+}
+
+.carousel-inner {
+  /* make sure your .items will get correct height */
+  height: 100%;
+}
+
+.item {
+  background-size: cover;
+  background-position: 50% 50%;
+  width: 100%;
+  height: 100%;
+}
+
+.carousel-inner>.item>img, .carousel-inner>.item>a>img {
+display: block;
+height: auto;
+max-width: 100%;
+line-height: 1;
+width: 100%; // Add this
+}
+
+.no-padding {
+    padding-left: 0;
+    padding-right: 0;
+    margin-right: 0;
+    margin-left: 0;
+}
+
+
+/* header */
+header {
+    width: 100%;
+    height: 180px;
+    background-color: rgb(57, 56, 55);
+}
+
+.header-menu-bottom {
+    margin-top: 130px;
+    background-color: rgb(38,37,37);
+    width: 100%;
+    position: absolute;
+    right: 0;
+}
+
+ul li {
+    transition: all 0.5s ease;
+}
+
+nav {
+  text-align: center;
+  /*padding: 10px 0;*/
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  text-decoration: none;
+  display: block;
+}
+
+nav.main_menu {
+    height: 50px;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.header-menu > li {
+  display: inline-block;
+  position: relative;
+}
+
+.header-menu > li > a {
+    text-decoration: none;
+    position: relative;
+    padding: 5px 25px;
+}
+
+.header-menu {
+    padding-top: 0px;
+    margin-bottom: 0px;
+}
+
+li.menu-item {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.header-menu li:hover a:before {
+    transform: translate(-50%, 0);
+    opacity: 1;
+}
+
+.menu-item:hover {
+    background-color: rgb(57, 56, 55);
+}
+
+.item_text {
+    color: rgb(224,178,139);
+    opacity: .8;
+}
+
+.drop_down_list {
+    position: absolute;
+    z-index: 4;
+    left: 50%;
+    top: 100%;
+    margin-top: 0;
+    background: black;
+    visibility: hidden;
+    transform: translate(-50%, 10px);
+    transition: all 0.3s ease-in-out 0s;
+    opacity: 0.1;
+}
+
+.header-menu > li:hover .drop_down_list {
+    visibility: visible;
+    transform: translate(-50%, 0);
+    opacity: 0.7;
+}
+
+.drop_down_list a {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 87px;
+    padding-left: 10px;
+    transition: all 0.1s linear;
+    text-decoration: none;
+}
+
+.drop_down_list li {
+    transition: all 0.1s linear;
+}
+
+.drop_down_list .item_text: {
+    opacity: 1;
+}
+
+.drop_down_list .item_text:hover {
+    color: white;
+}
+
+.text-after-carousel {
+    margin-top: 670px;
+}
+
+
+/* underlined animation 
+
+.drop_down_list a:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #000;
+  visibility: hidden;
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transition: all 0.3s ease-in-out 0s;
+  transition: all 0.3s ease-in-out 0s;
+}
+
+.drop_down_list a:hover:before {
+  visibility: visible;
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+}
+
+*/
+
+@media only screen and (min-width: 1000px) {
+    .header-inner {
+        float: none;
+        position: relative;
+        display: block;
+        left: 0;
+        width: 100%;
+    }
+}
+
+.header-widget {
+    position: absolute;
+    float: left;
+    vertical-align: middle;
+    display: table-cell;
+    height: 100%;
+    margin-top: 50px;
+}
+
+.header-widget a {
+    text-decoration: none;
+    padding-right: 30px;
+    display: inline-block;
+    color: rgb(224,178,139);  /* main beige color */
+}
+
+.header-widget a span {
+    display: block;
+    opacity: 0;
+}
+
+.header-widget a span:hover {
+    opacity: 1;
+    transition: all 0.3s ease-in-out 0s;
+}
+
+/*
+.header-widget a span {
+    display: none;
+}
+
+.header-widget a span:hover {
+    display: block;
+    visibility: visible;
+}
+*/
+.header-left-from-logo-widget {
+    z-index: 1;
+    left: 120px;
+}
+
+.header-left-from-logo-widget, .header-right-from-logo-widget {
+    display: block;
+    height: 100%;
+    position: absolute;
+}
+
+.header-right-from-logo-widget {
+    z-index: 1;
+    right: 40px;
+
+}
+
+.icon-link {
+    text-align: center;
+}
+
+.logo-wrapper {
+    width: 300px;
+    position: absolute;
+
+}
+
+.logo-header-img {
+    height: 120px;
+    width: auto;
+    position: absolute;
+    margin-left: 550px;
+    margin-top: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

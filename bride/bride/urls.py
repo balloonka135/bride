@@ -1,13 +1,13 @@
 from django.conf import settings
 from django.conf.urls.static import static
-from django.conf.urls import path, include
+from django.urls import path, include, re_path
 from django.contrib import admin
 from django.views.generic import RedirectView
 
 urlpatterns = [
-    path(r'^admin/', admin.site.urls),
-    path(r'^$', RedirectView.as_view(url='/catalog/', permanent=True)),
-    path(r'^catalog/', include('catalog.urls', namespace='catalog'))
+    re_path(r'^admin/', admin.site.urls),
+    re_path(r'^$', RedirectView.as_view(url='/catalog/', permanent=True)),
+    re_path(r'^catalog/', include('catalog.urls', namespace='catalog'))
 ]
 
 if settings.DEBUG:
