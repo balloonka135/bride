@@ -1,19 +1,39 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk-UA">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {% block title %}<title>Welcome to Adeline</title>{% endblock %}
+    <link rel="shortcut icon" type="image/png" href="{% static "img/favicon.png" %}"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,900&amp;subset=cyrillic" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cormorant+SC:400,500,600,700&amp;subset=cyrillic" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display+SC:400,700,900&amp;subset=cyrillic" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=EB+Garamond:400,400i,500,500i,600,600i,700,800&amp;subset=cyrillic" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:400,400i,500,500i,600,600i,700&amp;subset=cyrillic" rel="stylesheet">
+    <link rel="stylesheet" href="{% static "css/flickity.css" %}" media="screen">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="{% static "css/style.css" %}">
-    
+    <script>
+        $(document).ready(function(){
+            $(".cc-jq").animate({
+                opacity: '1'
+            }, "slow");
+
+            $('.main-carousel').flickity({
+                // options
+                cellAlign: 'left',
+                contain: true
+            });
+        });
+    </script>
 </head>
 
-<body>
+<body id="bootstrap-overrides">
+
     <header id="header">
         <div class="container no-padding">
             <div class="container-inner clearfix">
@@ -54,7 +74,7 @@
                         <li class="menu-item" id="nav-menu-1">
                             <a href="wedding_dresses" class="drop-button">
                                 <span class="item_inner">
-                                    <span class="item_text">Wedding Dresses</span>
+                                    <span class="item_text">Весільні сукні</span>
                                 </span>
                                 <span class="animated_line"></span>
                             </a>
@@ -91,7 +111,7 @@
                         </li><li class="menu-item" id="nav-menu-2">
                             <a href="wedding_dresses" class="drop-button">
                                 <span class="item_inner">
-                                    <span class="item_text">Wedding Dresses</span>
+                                    <span class="item_text">Весільні сукні</span>
                                 </span>
                                 <span class="animated_line"></span>
                             </a>
@@ -128,7 +148,7 @@
                         </li><li class="menu-item" id="nav-menu-3">
                             <a href="wedding_dresses" class="drop-button">
                                 <span class="item_inner">
-                                    <span class="item_text">Wedding Dresses</span>
+                                    <span class="item_text">Весільні сукні</span>
                                 </span>
                                 <span class="animated_line"></span>
                             </a>
@@ -165,7 +185,7 @@
                         </li><li class="menu-item" id="nav-menu-4">
                             <a href="wedding_dresses" class="drop-button">
                                 <span class="item_inner">
-                                    <span class="item_text">Wedding Dresses</span>
+                                    <span class="item_text">Весільні сукні</span>
                                 </span>
                                 <span class="animated_line"></span>
                             </a>
@@ -202,7 +222,7 @@
                         </li><li class="menu-item" id="nav-menu-5">
                             <a href="wedding_dresses" class="drop-button">
                                 <span class="item_inner">
-                                    <span class="item_text">Wedding Dresses</span>
+                                    <span class="item_text">Весільні сукні</span>
                                 </span>
                                 <span class="animated_line"></span>
                             </a>
@@ -239,7 +259,7 @@
                         </li><li class="menu-item" id="nav-menu-6">
                             <a href="wedding_dresses" class="drop-button">
                                 <span class="item_inner">
-                                    <span class="item_text">Wedding Dresses</span>
+                                    <span class="item_text">Весільні сукні</span>
                                 </span>
                                 <span class="animated_line"></span>
                             </a>
@@ -276,7 +296,7 @@
                         </li><li class="menu-item" id="nav-menu-7">
                             <a href="wedding_dresses" class="drop-button">
                                 <span class="item_inner">
-                                    <span class="item_text">Wedding Dresses</span>
+                                    <span class="item_text">Весільні сукні</span>
                                 </span>
                                 <span class="animated_line"></span>
                             </a>
@@ -313,7 +333,7 @@
                         </li><li class="menu-item" id="nav-menu-8">
                             <a href="wedding_dresses" class="drop-button">
                                 <span class="item_inner">
-                                    <span class="item_text">Wedding Dresses</span>
+                                    <span class="item_text">Весільні сукні</span>
                                 </span>
                                 <span class="animated_line"></span>
                             </a>
@@ -367,37 +387,37 @@
         </div>
     </section>
 
+    <!--
+    <hr class="hr-style"> -->
     <footer class="footer-part">
-        <div class="container-fluid">
-            <div class="row justify-content-around main-footer">
+        <div class="container-small">
+            <div class="flex main-footer">
                 <div class="one-quater">
-                    <img src="" alt="Logo">
+                    <img src="{% static "img/logo_empty.png" %}" alt="Logo" style="width: 250px; margin-left: 20px; margin-bottom: 80px;">
                 </div>
                 <div class="one-quater">
-                    <h3>General</h3>
-                    <ul class="footer-one">
+                    <h3>Основні</h3>
+                    <ul class="footer-list">
                         <li class="footer-menu-item"><a href="">FAQ's</a></li>
-                        <li class="footer-menu-item"><a href="">Privacy policy</a></li>
+                        <li class="footer-menu-item"><a href="">Правила користування</a></li>
                     </ul>
                 </div>
                 <div class="one-quater">
-                    <h3>About</h3>
-                    <ul class="footer-two">
-                        <li class="footer-menu-item"><a href="">About</a></li>
-                        <li class="footer-menu-item"><a href="">Contact</a></li>
+                    <h3>Про нас</h3>
+                    <ul class="footer-list">
+                        <li class="footer-menu-item"><a href="">Про нас</a></li>
+                        <li class="footer-menu-item"><a href="">Контакти</a></li>
                     </ul>
                 </div>
-                <div class="one-quater">
-                    <h3>Follow</h3>
-                    <ul>
-                        <li><a href=""><i class="fa-icon facebook-icon" aria-hidden="true"></i></a></li>
-                        <li><a href=""><i class="fa-icon instagram-icon" aria-hidden="true"></i></a></li>
-                        <li><a href=""><i class="fa-icon youtube-icon" aria-hidden="true"></i></a></li>
-                        <li><a href=""><i class="fa-icon pinteres-icon" aria-hidden="true"></i></a></li>
+                <div class="one-quater" id="oq">
+                    <h3>Соціальні мережі</h3>
+                    <ul class="footer-list social-links">
+                        <li><a href="https://www.facebook.com/adelini.wedding"><i class="fab fa-lg fa-facebook-f" aria-hidden="true"></i></a></li>
+                        <li><a href="https://www.instagram.com/adelini.wedding.dress/"><i class="fab fa-lg fa-instagram" aria-hidden="true"></i></a></li>
                     </ul>
                 </div>
             </div>
-            <div class="row justify-content-around copy-center">
+            <div class="copyright-text">
                 <p>© 2018 All rights Reserved.</p>
             </div>
         </div>

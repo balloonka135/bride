@@ -5,15 +5,81 @@
 
 @media only screen and (min-width : 1200px) {
 
-    .container { width: 1410px; } 
+    .container { width: 1330px; } 
 
 }
+
+@font-face {
+    font-family: 'ProximaNova-Black';
+    src: url(/Users/irinanazarchuk/Documents/code/bride_project/bride/catalog/static/fonts/ProximaNova-Black.otf);
+}
+
+@font-face {
+    font-family: 'ProximaNova-Bold';
+    src: url(/Users/irinanazarchuk/Documents/code/bride_project/bride/catalog/static/fonts/proximanova-bold.otf);
+}
+
+@font-face {
+    font-family: 'ProximaNova-ExtraBold';
+    src: url(/Users/irinanazarchuk/Documents/code/bride_project/bride/catalog/static/fonts/proximanova-extrabold.otf);
+}
+
+@font-face {
+    font-family: 'ProximaNova-Light';
+    src: url(/Users/irinanazarchuk/Documents/code/bride_project/bride/catalog/static/fonts/proximanova-light.otf);
+}
+
+@font-face {
+    font-family: 'proximanova-regular';
+    src: url(/Users/irinanazarchuk/Documents/code/bride_project/bride/catalog/static/fonts/proximanova-regular.otf);
+}
+
+@font-face {
+    font-family: 'Couture-Bold';
+    src: url(/Users/irinanazarchuk/Documents/code/bride_project/bride/catalog/static/fonts/couture-bld.otf);
+}
+
+@font-face {
+    font-family: 'Panton-BlackCaps';
+    src: url(/Users/irinanazarchuk/Documents/code/bride_project/bride/catalog/static/fonts/Panton-BlackCaps.otf);
+}
+
+@font-face {
+    font-family: 'Panton-LightCaps';
+    src: url(/Users/irinanazarchuk/Documents/code/bride_project/bride/catalog/static/fonts/Panton-LightCaps.otf);
+}
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800,900&subset=cyrillic');
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display:400,700,900&subset=cyrillic');
+@import url('https://fonts.googleapis.com/css?family=PT+Serif:400,700&subset=cyrillic');
+@import url('https://fonts.googleapis.com/css?family=EB+Garamond:400,500,600,700,800&subset=cyrillic');
+@import url('https://fonts.googleapis.com/css?family=Cormorant+Garamond:400,400i,500,500i,600,600i,700,700i&subset=cyrillic');
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display+SC:400,700,900&subset=cyrillic');
+@import url('https://fonts.googleapis.com/css?family=Yeseva+One&subset=cyrillic');
+@import url('https://fonts.googleapis.com/css?family=Cormorant+SC:400,500,600,700&subset=cyrillic');
+@import url('https://fonts.googleapis.com/css?family=Cormorant+Unicase:400,500,600,700&subset=cyrillic');
+
+
+/*
+example
+font-family:'Open Sans' , sans-serif/serif/cursive;
+font-weight : 100;
+text-shadow: 4px 4px 4px #aaa;
+font-size: 48px;
+*/
+
+
+
 
 /* colors */
 /* background-color: rgb(57, 56, 55); main grey */
 /* background-color: rgb(38,37,37); dark grey */
 /* color: rgb(224,178,139); beige */
 
+/* fonts */
+/* Playfair Display SC */
+/* proximanova-regular */
+/* Cormorant Garamond bold/italic */
 
 
 /* carousel */
@@ -21,7 +87,7 @@
 .carousel {
   /* any dimensions are fine, it can be responsive with max-width */
   width: 100%;
-  height: 650px;
+  height: 750px;
   position: absolute;
   left: 0;
   margin-bottom: 200px;
@@ -40,12 +106,30 @@
 }
 
 .carousel-inner>.item>img, .carousel-inner>.item>a>img {
-display: block;
-height: auto;
-max-width: 100%;
-line-height: 1;
-width: 100%; // Add this
+    display: block;
+    height: auto;
+    max-width: 100%;
+    line-height: 1;
+    width: 100%; // Add this
 }
+
+.carousel-caption {
+    padding-bottom: 80px;
+    text-align: left;
+}
+
+.carousel-caption h3 {
+    
+}
+
+.carousel-caption p {
+
+}
+
+#cc-1 {
+
+}
+
 
 .no-padding {
     padding-left: 0;
@@ -113,8 +197,10 @@ nav.main_menu {
 }
 
 li.menu-item {
+    width: 160px;
     padding-top: 10px;
     padding-bottom: 10px;
+    vertical-align: middle;
 }
 
 .header-menu li:hover a:before {
@@ -129,14 +215,23 @@ li.menu-item {
 .item_text {
     color: rgb(224,178,139);
     opacity: .8;
+    font-family:'proximanova-regular';
+    font-size: 16px; 
+}
+
+.drop_down_list .item_text_inner: {
+    opacity: 1;
+}
+
+.drop_down_list .item_text:hover {
+    color: white;
 }
 
 .drop_down_list {
     position: absolute;
     z-index: 4;
     left: 50%;
-    top: 100%;
-    margin-top: 0;
+    margin-top: 8px;
     background: black;
     visibility: hidden;
     transform: translate(-50%, 10px);
@@ -153,7 +248,7 @@ li.menu-item {
 .drop_down_list a {
     padding-top: 10px;
     padding-bottom: 10px;
-    padding-right: 87px;
+    padding-right: 80px;
     padding-left: 10px;
     transition: all 0.1s linear;
     text-decoration: none;
@@ -163,16 +258,22 @@ li.menu-item {
     transition: all 0.1s linear;
 }
 
-.drop_down_list .item_text: {
-    opacity: 1;
-}
-
-.drop_down_list .item_text:hover {
-    color: white;
-}
-
 .text-after-carousel {
-    margin-top: 670px;
+    margin-top: 800px;
+    padding-top: 50px;
+    text-align: center;
+    font-family: 'Cormorant Garamond', serif; 
+    font-style: italic;
+}
+
+.hr-quote {
+    width: 150px;
+    height: 1px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
+    margin-bottom: 0;
+    background-color: black;
 }
 
 
@@ -225,14 +326,16 @@ li.menu-item {
     padding-right: 30px;
     display: inline-block;
     color: rgb(224,178,139);  /* main beige color */
+    opacity: .8;
 }
 
 .header-widget a span {
     display: block;
     opacity: 0;
+    font-family:'proximanova-regular';
 }
 
-.header-widget a span:hover {
+.header-widget a:hover, .header-widget a span:hover {
     opacity: 1;
     transition: all 0.3s ease-in-out 0s;
 }
@@ -282,8 +385,541 @@ li.menu-item {
     margin-top: 10px;
 }
 
+footer.footer-part {
+    padding-top: 40px;
+}
+
+.main-footer {
+    padding-bottom: 20px;
+}
+
+.one-quater {
+    display: inline-block;
+    width: 24%;
+    position: relative;
+}
+
+.one-quater ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.one-quater ul a {
+    text-decoration: none;
+    color: rgb(57, 56, 55);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    opacity: .5;
+}
+
+.one-quater ul a:hover {
+    opacity: 1;
+}
+
+.one-quater h3 {
+    margin-bottom: 30px;
+    color: rgb(38,37,37);
+    font-family:'Playfair Display SC', serif;
+    font-weight: 700;
+}
+
+hr.hr-style {
+    background-color: rgb(38,37,37);
+    opacity: .5;
+    height: 1px;
+    margin: 0;
+}
+
+.copyright-text {
+    text-align: center;
+    color: rgb(38,37,37);
+    font-family:'proximanova-regular';
+    opacity: .5;
+
+}
+
+.social-links a {
+    border-radius: 50%;
+    display: inline-block;
+    border: 1px solid #999999;
+    width: 45px;
+    height: 45px;
+    text-align: center;
+    color: rgb(38,37,37) !important;
+    float: left;
+    padding-top: 8px;
+    margin-left: 10px;
+    opacity: .7;
+}
+
+.social-links a:hover {
+    opacity: 1;
+}
+
+#oq {
+    position: absolute;
+}
+
+.inner-margin-section {
+    margin-top: 100px;
+    margin-left: 80px;
+    display: inline-block;
+    position: relative;
+}
+
+.column-first-sqr {
+   padding-top: 60px;
+   float: left;
+   width: 50%;
+}
+
+#img_wed {
+    height: 700px;
+}
+
+#img_prom {
+    height: 400px;
+}
+
+#img_acs {
+    height: 400px;
+}
+
+.bright-filter {
+    filter: brightness(80%);
+    transition: all 0.3s ease-in-out 0s;
+}
+
+.bright-filter:hover {
+    filter: brightness(100%);
+} 
+
+.column-second-sqr {
+    float: right;
+    width: 50%;
+}
+
+.column-second-hf-sqr-1 {
+    margin-bottom: 30px;
+}
+
+.front-holder {
+    position: absolute;
+    text-align: center;
+    color: white;
+}
+
+#fh1 {
+    top: 320px;
+    left: 80px; 
+}
+
+#fh2 {
+    top: 150px;
+    right: 100px;
+}
+
+#fh3 {
+    top: 570px;
+    right: 100px;
+}
+
+.about-content {
+    height: 700px;
+    margin-top: 50px;
+    background-color: rgb(57, 56, 55);
+}
+
+.about-content-header {
+    text-align: center;
+    margin-right: 0;
+    margin-left: 0;
+    padding-top: 50px;
+}
+
+.about-content-header h2 {
+    color: rgb(224,178,139);
+    font-family:'Playfair Display SC', serif; 
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-shadow:  0px 0px 20px rgb(38,37,37);
+}
+
+.separator-content {
+    line-height: 0.5;
+    text-align: center;
+}
+
+.separator-content span {
+    display: inline-block;
+    position: relative;  
+    color: white;
+    font-family:'Cormorant Garamond', serif; 
+    font-size: 24px;
+    font-style: italic;
+}
+
+.separator-content span:before,
+.separator-content span:after {
+    content: "";
+    position: absolute;
+    height: 5px;
+    border-bottom: 1px solid white;
+    top: 0;
+    width: 200px;
+}
+
+.separator-content span:before {
+    right: 100%;
+    margin-right: 15px;
+}
+
+.separator-content span:after {
+    left: 100%;
+    margin-left: 15px;
+}
+
+.about-content-body {
+    display: inline-block;
+}
+
+.inner-image img {
+    height: 400px;
+}
+
+.content-photo {
+    position: relative;
+    width: 50%;
+    float: left;
+    margin-top: 50px;
+    margin-left: 80px;
+    display: inline-block;
+}
+
+.content-text {
+    position: absolute;
+    width: 500px;
+    margin-top: 100px;
+    right: 150px;
+}
+
+.content-text h2 {
+    font-family:'Cormorant Garamond', serif; 
+    font-style: italic;
+    color: white;
+}
+
+.content-text p {
+    color: rgb(224,178,139);
+    font-family:'Cormorant Garamond', serif; 
+    font-size: 18px; 
+}
+
+/* MAIN BUTTON */
+.main-button {
+    display: block;
+    width: 200px;
+    height: 50px;
+    background-color: black;
+    border-radius: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 12px;
+    padding-bottom: 15px;
+    text-align: center;
+    margin-top: 50px;
+    font-size: 20px;
+    font-family: 'Playfair Display SC', serif;
+    font-weight: 700;
+    color: rgb(224,178,139);
+    background-color: rgb(38,37,37);
+    text-decoration: none;
+    transition: all 0.3s ease-in-out 0s;
+    box-shadow: 0px 0px 24px -4px rgba(0,0,0,0.75);
+}
+
+.main-button:hover {
+    background-color: rgb(224,178,139);
+    color: rgb(38,37,37);
+    border: 0;
+    text-decoration: none;
+}
 
 
+.quote {
+    height: 530px;
+    background-color: black;
+}
+
+.quote img {
+    height: 530px;
+    background-size: cover;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    opacity: .5;
+}
+
+.quote .overlay-text {
+    position: absolute;
+    left: 400px;
+    margin-top: 120px;
+    width: 600px;
+}
+
+.quote-content {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px;
+    color: white;
+    font-style: italic;
+    text-align: center;
+    padding: 0 10px;
+}
+
+
+.arrivals {
+    height: 800px;
+    width: 100%;
+}
+
+.title-arrivals {
+    text-align: center;
+    margin-right: 0;
+    margin-left: 0;
+    padding-top: 50px;
+    margin-bottom: 50px;
+    color: rgb(38,37,37);
+}
+
+.title-arrivals h2 {
+    font-family: 'Playfair Display SC', serif;
+    font-weight: 700;
+    font-size: 36px;
+}
+
+.title-arrivals h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+}
+
+.arrivals img {
+    height: 500px;
+    
+}
+
+.arrivals .img-caption {
+    position: absolute; 
+    color: black;
+    text-align: center;
+    margin-left: 120px;
+}
+
+.arr-img:hover {
+    filter: brightness(50%);
+    transition: all 0.3s ease-in-out 0s;
+}
+
+.multi-item-carousel{
+  .carousel-inner{
+    > .item{
+      transition: 500ms ease-in-out left;
+    }
+    .active{
+      &.left{
+        left:-33%;
+      }
+      &.right{
+        left:33%;
+      }
+    }
+    .next{
+      left: 33%;
+    }
+    .prev{
+      left: -33%;
+    }
+    @media all and (transform-3d), (-webkit-transform-3d) {
+      > .item{
+        // use your favourite prefixer here
+        transition: 500ms ease-in-out left;
+        transition: 500ms ease-in-out all;
+        backface-visibility: visible;
+        transform: none!important;
+      }
+    }
+  }
+  .carouse-control{
+    &.left, &.right{
+      background-image: none;
+    }
+  }
+}
+
+
+.designers {
+    height: 340px;
+    background-color: rgb(57, 56, 55);
+}
+
+.designers img {
+    opacity: .7;
+    width: 100%;
+    background-size: cover;
+    height: 340px;
+    position: absolute;
+    left: 0;
+    right: 0;
+}
+
+.banner-overlay-text {
+    position: absolute;
+    text-align: center;
+    margin-left: 500px;
+    margin-top: 50px;
+}
+
+.banner-overlay-text h2 {
+    color: white;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 700;
+    font-size: 40px;
+    text-shadow:  0px 0px 20px rgb(38,37,37);
+}
+
+#design-button {
+    width: 300px;
+    padding-bottom: 40px;
+}
+
+.love-story {
+    height: 800px;
+}
+
+.one-half-first {
+    width: 50%;
+    float: left;
+    position: relative;
+    left: 130px;
+    top: 50px;
+}
+
+.one-half-first h3 {
+    font-family: 'Playfair Display SC', serif;
+    font-style: italic;
+    font-weight: 700;
+    font-size: 40px;
+    color: rgb(38,37,37);
+}
+
+.one-half-first p {
+    width: 450px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    line-height: 2;
+}
+
+.one-half-second {
+    width: 50%;
+    float: right;
+    position: relative;
+    right: 50px;
+    top: 50px;
+}
+
+.one-half-second img {
+    height: 500px;
+}
+
+.instagram-banner {
+    height: 500px;
+    margin-top: 30px;
+}
+
+.banner-title {
+    text-align: center;
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.banner-title h1 {
+    font-family: 'Playfair Display SC', serif;
+    color: rgb(38,37,37);
+    font-weight: 700;
+}
+
+.banner-title h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 600;
+    font-style: italic;
+}
+
+hr.insta-hr {
+    width: 240px;
+    background-color: rgb(38,37,37);
+    height: 1px;
+    position: relative;
+    left: 530px;   
+}
+
+.instagram-banner {
+    height: 500px;
+}
+
+/* instagram example */
+.instagram-banner-row {
+    position: absolute;
+    left: 430px;
+    margin-top: 50px;
+    margin-bottom: 100px;
+}
+
+.instagram-banner-row ul {
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    list-style: none;
+}
+
+.instagram-banner-row ul li {
+    float: left;
+    margin-left: 15px;
+    margin-right: 15px; 
+}
+
+.instagram-banner-row img {
+    height: 160px;
+    vertical-align: top;
+    width: 160px;
+}
+
+.info-block {
+    margin-top: 150px;
+    height: 300px;
+    background-color: rgb(57, 56, 55);
+}
+
+.info-block p {
+    text-align: center;
+    color: rgb(224,178,139); 
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    line-height: 2;
+    padding-top: 30px;
+    padding-bottom: 10px;
+
+}
+
+#info-button {
+    width: 300px;
+    position: absolute;
+    left: 570px;
+    margin: 0; 
+}
 
 
 
