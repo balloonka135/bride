@@ -82,6 +82,7 @@ font-size: 48px;
 /* Cormorant Garamond bold/italic */
 
 
+
 /* carousel */
 
 .carousel {
@@ -201,6 +202,7 @@ li.menu-item {
     padding-top: 10px;
     padding-bottom: 10px;
     vertical-align: middle;
+    height: 50px;
 }
 
 .header-menu li:hover a:before {
@@ -248,14 +250,16 @@ li.menu-item {
 .drop_down_list a {
     padding-top: 10px;
     padding-bottom: 10px;
-    padding-right: 80px;
+    padding-right: 30px;
     padding-left: 10px;
     transition: all 0.1s linear;
     text-decoration: none;
+    text-align: left;
 }
 
 .drop_down_list li {
     transition: all 0.1s linear;
+    width: 160px;
 }
 
 .text-after-carousel {
@@ -363,8 +367,7 @@ li.menu-item {
 
 .header-right-from-logo-widget {
     z-index: 1;
-    right: 40px;
-
+    right: 20px;
 }
 
 .icon-link {
@@ -381,7 +384,7 @@ li.menu-item {
     height: 120px;
     width: auto;
     position: absolute;
-    margin-left: 550px;
+    margin-left: 570px;
     margin-top: 10px;
 }
 
@@ -920,6 +923,314 @@ hr.insta-hr {
     left: 570px;
     margin: 0; 
 }
+
+/* scroll to the top */
+.scrolltop {
+    display:none;
+    width:100%;
+    margin:0 auto;
+    position:fixed;
+    bottom:20px;
+    right:10px; 
+}
+.scroll {
+    position:absolute;
+    right:20px;
+    bottom:20px;
+    background:#b2b2b2;
+    background:rgba(178,178,178,0.7);
+    padding:15px;
+    text-align: center;
+    margin: 0 0 0 0;
+    cursor:pointer;
+    transition: 0.5s;
+    -moz-transition: 0.5s;
+    -webkit-transition: 0.5s;
+    -o-transition: 0.5s;        
+}
+.scroll:hover {
+    background:rgba(178,178,178,1.0);
+    transition: 0.5s;
+    -moz-transition: 0.5s;
+    -webkit-transition: 0.5s;
+    -o-transition: 0.5s;        
+}
+.scroll:hover .fa {
+    padding-top:-10px;
+}
+.scroll .fa {
+    font-size:30px;
+    margin-top:-5px;
+    margin-left:1px;
+    transition: 0.5s;
+    -moz-transition: 0.5s;
+    -webkit-transition: 0.5s;
+    -o-transition: 0.5s;    
+}
+
+
+
+
+/* ABOUT US */
+.aboutpage-header h1 {
+    text-align: center;
+    margin-right: 0;
+    margin-left: 0;
+    padding-top: 70px;
+    margin-bottom: 50px;
+    color: rgb(38,37,37);
+    font-family: 'Playfair Display SC', serif;
+    font-weight: 700;
+    font-size: 36px;
+}
+
+hr.hr-aboutpage {
+    width: 340px;
+    background-color: rgb(38,37,37);
+    height: 1px;
+    position: relative;
+    left: 480px; 
+}
+
+.about-section {
+    height: 700px;
+}
+
+.about-photo {
+    width: 50%;
+    float: left;
+    position: relative;
+    left: 100px;
+    top: 50px;
+}
+
+.about-photo img {
+    height: 650px;
+}
+
+.about-story {
+    width: 50%;
+    float: right;
+    position: relative;
+    right: 50px;
+    top: 50px;
+}
+
+.about-story h3 {
+    font-family: 'Playfair Display SC', serif;
+    font-style: italic;
+    font-weight: 700;
+    font-size: 30px;
+    color: rgb(38,37,37);
+}
+
+.about-story p {
+    width: 500px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    line-height: 2;
+}
+
+.why-choose-section {
+    margin-top: 80px;
+    color: rgb(38,37,37);
+}
+
+.why-choose-section h2 {
+    text-align: center;
+    font-family: 'Playfair Display SC', serif;
+    font-weight: 700;
+    font-size: 30px;
+    margin-bottom: 50px;
+}
+
+.why-choose-section h3 {
+    text-align: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px;
+    font-weight: 800;
+    font-style: italic;
+}
+
+.about-info-block {
+    margin-top: 70px;
+    height: 550px;
+=
+}
+
+.about-info-block .one-third {
+    width: 30%;
+    display: inline-block;
+    position: relative;
+    padding-left: 130px;
+}
+
+.about-info-block .about-info {
+    line-height: 2;s
+}
+
+.about-info-block .about-header {
+    text-align: center;
+}
+
+.about-info p {
+    text-align: justify;
+    margin-top: 20px;
+}
+
+
+.browse-button {
+    margin-top: 80px; 
+    margin-left: 470px;
+}
+
+.appoint-banner {
+    height: 400px;
+    margin-top: 100px;
+}
+
+
+.appoint-banner img {
+    width: 100%;
+    background-size: cover;
+    height: 400px;
+    position: absolute;
+    left: 0;
+    right: 0;
+}
+
+.banner-text {
+    position: absolute;
+    text-align: center;
+    margin-top: 90px;
+}
+
+.banner-text h2 {
+    color: white;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 700;
+    font-size: 40px;
+    text-shadow:  0px 0px 20px rgb(38,37,37);
+    margin-left: 460px;
+}
+
+.banner-text a {
+    margin-left: 530px;
+}
+
+
+
+
+
+/* DESIGNERS */
+.designers-quote {
+    margin-top: 50px;
+    margin-left: 415px;
+    width: 500px;
+}
+
+.designers-quote p {
+    text-align: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 24px;
+}
+
+.brands-block p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    width: 400px;
+}
+
+.lucesposa-block {
+    margin-top: 100px;
+    height: 200px;
+}
+
+.lucesposa-block p {
+    position: relative;
+    float: right;
+    right: 200px;
+    margin-top: 30px;
+}
+
+#logo1 {
+    position: absolute;
+    float: left;
+    height: 150px; 
+    left: 300px;
+}
+
+.vasylk-block {
+    height: 200px;
+}
+
+.vasylk-block p {
+    position: relative;
+    float: left;
+    left: 250px;
+    margin-top: 30px;
+}
+
+#logo2 {
+    position: absolute;
+    float: right;
+    right: 360px;
+    height: 200px; 
+}
+
+.marybride-block {
+    height: 400px;
+}
+
+.marybride-block p {
+    position: relative;
+    float: right;
+    right: 200px;
+    margin-top: 120px;
+}
+
+#logo3 {
+    position: absolute;
+    float: left;
+    left: 310px;
+    height: 350px; 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

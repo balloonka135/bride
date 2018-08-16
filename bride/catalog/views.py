@@ -10,6 +10,14 @@ def index(request):
     return render(request, 'catalog/index.html', {})
 
 
+def about_us(request):
+    return render(request, 'catalog/about_us.html', {})
+
+
+def designers(request):
+    return render(request, 'catalog/designers.html', {})
+
+
 def productList(request, category_slug=None):
     category = None
     categories = Category.objects.all()

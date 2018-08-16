@@ -14,7 +14,6 @@
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display+SC:400,700,900&amp;subset=cyrillic" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=EB+Garamond:400,400i,500,500i,600,600i,700,800&amp;subset=cyrillic" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:400,400i,500,500i,600,600i,700&amp;subset=cyrillic" rel="stylesheet">
-    <link rel="stylesheet" href="{% static "css/flickity.css" %}" media="screen">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script>
@@ -22,17 +21,23 @@
             $(".cc-jq").animate({
                 opacity: '1'
             }, "slow");
-
-            $('.main-carousel').flickity({
-                // options
-                cellAlign: 'left',
-                contain: true
-            });
         });
     </script>
 </head>
 
 <body id="bootstrap-overrides">
+    <script>
+            $(window).scroll(function() {
+        if ($(this).scrollTop() > 550 ) {
+            $('.scrolltop:hidden').stop(true, true).fadeIn();
+        } else {
+            $('.scrolltop').stop(true, true).fadeOut();
+        }
+    });
+    $(function(){$(".scroll").click(function(){$("html,body").animate({scrollTop:$(".thetop").offset().top},"1000");return false})});
+    </script>
+
+    <div class='thetop'></div>
 
     <header id="header">
         <div class="container no-padding">
@@ -50,7 +55,7 @@
                     </div>
 
                     <div class="logo-wrapper">
-                        <a href="adeline.com">
+                        <a href="{% url 'catalog:index' %}">
                             <img class="logo-header-img" src="{% static "img/new_logo.png" %}" alt="Adeline">
                         </a>
                     </div>
@@ -72,7 +77,7 @@
                 <nav class="main_menu drop_down">
                     <ul class="header-menu clearfix" style="margin-bottom: 0px;">
                         <li class="menu-item" id="nav-menu-1">
-                            <a href="wedding_dresses" class="drop-button">
+                            <a href="{% url 'catalog:index' %}" class="drop-button">
                                 <span class="item_inner">
                                     <span class="item_text">Весільні сукні</span>
                                 </span>
@@ -109,9 +114,9 @@
                                 </div>
                             </div>
                         </li><li class="menu-item" id="nav-menu-2">
-                            <a href="wedding_dresses" class="drop-button">
+                            <a href="{% url 'catalog:index' %}" class="drop-button">
                                 <span class="item_inner">
-                                    <span class="item_text">Весільні сукні</span>
+                                    <span class="item_text">Вечірні сукні</span>
                                 </span>
                                 <span class="animated_line"></span>
                             </a>
@@ -146,9 +151,9 @@
                                 </div>
                             </div>
                         </li><li class="menu-item" id="nav-menu-3">
-                            <a href="wedding_dresses" class="drop-button">
+                            <a href="{% url 'catalog:index' %}" class="drop-button">
                                 <span class="item_inner">
-                                    <span class="item_text">Весільні сукні</span>
+                                    <span class="item_text">Аксесуари</span>
                                 </span>
                                 <span class="animated_line"></span>
                             </a>
@@ -183,9 +188,9 @@
                                 </div>
                             </div>
                         </li><li class="menu-item" id="nav-menu-4">
-                            <a href="wedding_dresses" class="drop-button">
+                            <a href="{% url 'catalog:about_us' %}" class="drop-button">
                                 <span class="item_inner">
-                                    <span class="item_text">Весільні сукні</span>
+                                    <span class="item_text">Про нас</span>
                                 </span>
                                 <span class="animated_line"></span>
                             </a>
@@ -193,25 +198,17 @@
                                 <div class="inner">
                                     <ul>
                                         <li class="nav-menu-item">
-                                            <a href="wed_collection#1">
+                                            <a href="{% url 'catalog:about_us' %}">
                                                 <span class="item_inner">
-                                                    <span class="item_text">Collection</span>
+                                                    <span class="item_text">Наша історія</span>
                                                 </span>
                                                 <span class="animated_line"></span>
                                             </a>
                                         </li>
                                         <li class="nav-menu-item">
-                                            <a href="wed_collection#1">
+                                            <a href="{% url 'catalog:designers' %}">
                                                 <span class="item_inner">
-                                                    <span class="item_text">Collection</span>
-                                                </span>
-                                                <span class="animated_line"></span>
-                                            </a>
-                                        </li>
-                                        <li class="nav-menu-item">
-                                            <a href="wed_collection#1">
-                                                <span class="item_inner">
-                                                    <span class="item_text">Collection</span>
+                                                    <span class="item_text">Дизайнери</span>
                                                 </span>
                                                 <span class="animated_line"></span>
                                             </a>
@@ -220,42 +217,12 @@
                                 </div>
                             </div>
                         </li><li class="menu-item" id="nav-menu-5">
-                            <a href="wedding_dresses" class="drop-button">
+                            <a href="{% url 'catalog:index' %}" class="drop-button">
                                 <span class="item_inner">
-                                    <span class="item_text">Весільні сукні</span>
+                                    <span class="item_text">Блог</span>
                                 </span>
                                 <span class="animated_line"></span>
                             </a>
-                            <div class="drop_down_list">
-                                <div class="inner">
-                                    <ul>
-                                        <li class="nav-menu-item">
-                                            <a href="wed_collection#1">
-                                                <span class="item_inner">
-                                                    <span class="item_text">Collection</span>
-                                                </span>
-                                                <span class="animated_line"></span>
-                                            </a>
-                                        </li>
-                                        <li class="nav-menu-item">
-                                            <a href="wed_collection#1">
-                                                <span class="item_inner">
-                                                    <span class="item_text">Collection</span>
-                                                </span>
-                                                <span class="animated_line"></span>
-                                            </a>
-                                        </li>
-                                        <li class="nav-menu-item">
-                                            <a href="wed_collection#1">
-                                                <span class="item_inner">
-                                                    <span class="item_text">Collection</span>
-                                                </span>
-                                                <span class="animated_line"></span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
                         </li><li class="menu-item" id="nav-menu-6">
                             <a href="wedding_dresses" class="drop-button">
                                 <span class="item_inner">
@@ -294,7 +261,7 @@
                                 </div>
                             </div>
                         </li><li class="menu-item" id="nav-menu-7">
-                            <a href="wedding_dresses" class="drop-button">
+                            <a href="{% url 'catalog:index' %}" class="drop-button">
                                 <span class="item_inner">
                                     <span class="item_text">Весільні сукні</span>
                                 </span>
@@ -331,42 +298,13 @@
                                 </div>
                             </div>
                         </li><li class="menu-item" id="nav-menu-8">
-                            <a href="wedding_dresses" class="drop-button">
+                            <a href="{% url 'catalog:index' %}" class="drop-button">
                                 <span class="item_inner">
-                                    <span class="item_text">Весільні сукні</span>
+                                    <span class="item_text">Контакти</span>
                                 </span>
                                 <span class="animated_line"></span>
                             </a>
-                            <div class="drop_down_list">
-                                <div class="inner">
-                                    <ul>
-                                        <li class="nav-menu-item">
-                                            <a href="wed_collection#1">
-                                                <span class="item_inner">
-                                                    <span class="item_text">Collection</span>
-                                                </span>
-                                                <span class="animated_line"></span>
-                                            </a>
-                                        </li>
-                                        <li class="nav-menu-item">
-                                            <a href="wed_collection#1">
-                                                <span class="item_inner">
-                                                    <span class="item_text">Collection</span>
-                                                </span>
-                                                <span class="animated_line"></span>
-                                            </a>
-                                        </li>
-                                        <li class="nav-menu-item">
-                                            <a href="wed_collection#1">
-                                                <span class="item_inner">
-                                                    <span class="item_text">Collection</span>
-                                                </span>
-                                                <span class="animated_line"></span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
+                            
                         </li>
                     </ul>
                 </nav>
@@ -374,12 +312,9 @@
         </div>
     </header>
 
-    <a href="#" class="on/off" id="back-to-top">
-        <span class="icon-area">
-            <span class="arrow-up"></span>
-            <span class="overlay"></span>
-        </span>
-    </a>
+    <div class='scrolltop'>
+        <div class='scroll icon'><i class="fa fa-angle-up"></i></div>
+    </div>
 
     <section class="content">
         <div class="container">

@@ -18,5 +18,7 @@ urlpatterns = [
     # url(r'^browse/wedding-dresses/(?P<collection_slug>[-\w]+)/$', views.index, name='wed-by-collection'),
     # url(r'^browse/prom-dresses/(?P<collection_slug>[-\w]+)/$', views.index, name='prom-by-collection'),
     # url(r'^about-us/$', views.index, name='about-us'),
+    re_path(r'^about/$', views.about_us, name='about_us'),
+    re_path(r'^designers/$', views.designers, name='designers'),
     re_path(r'^$', views.index, name='index'),
 ]

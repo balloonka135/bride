@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    Designers
+{% endblock %}
+
+{% block content %}
+    <div class="aboutpage-header">
+        <div class="title-area">
+            <div class="container">
+                <h1>Дизайнери</h1>
+                <hr class="hr-aboutpage" >
+            </div>
+        </div>
+    </div>
+
+    <div class="designers-quote">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque maiores, iste rerum repellat, vero quia dolor aspernatur odio. Asperiores provident doloremque id a unde deserunt nobis inventore minus alias, laudantium?</p>
+        </div>
+        
+    <div class="brands-block">
+
+        <div class="lucesposa-block">
+            <img src="{% static "img/luce_sposa_logo.png" %}" alt="" id="logo1">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam voluptatem, asperiores porro explicabo dolore illo ab beatae dignissimos voluptatum earum, suscipit sequi nobis possimus, cupiditate dolores neque at dolorem. Id.</p>
+        </div>
+
+        <div class="vasylk-block">
+            <img src="{% static "img/logo_vasylk.jpg" %}" alt="" id="logo2">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam voluptatem, asperiores porro explicabo dolore illo ab beatae dignissimos voluptatum earum, suscipit sequi nobis possimus, cupiditate dolores neque at dolorem. Id.</p>
+        </div>
+
+        <div class="marybride-block">
+            <img src="{% static "img/Mary-bride_logo.jpg" %}" alt="" id="logo3">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam voluptatem, asperiores porro explicabo dolore illo ab beatae dignissimos voluptatum earum, suscipit sequi nobis possimus, cupiditate dolores neque at dolorem. Id.</p>
+        </div>
+    </div>
+{% endblock %}
