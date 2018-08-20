@@ -1200,44 +1200,172 @@ hr.hr-aboutpage {
 
 
 
+/* CONTACTS */
+.contacts-content {
+    height: 400px;
+    margin-top: 80px;
+    margin-bottom: 100px;
+}
+
+.contacts-content img {
+    height: 400px;
+    left: 700px;
+    position: absolute;
+}
+
+.contacts-info {
+    position: relative;
+    left: 200px;
+}
+
+.contacts-info h2 {
+    font-family: 'Playfair Display SC', serif;
+    font-style: italic;
+    font-weight: 700;
+    font-size: 30px;
+    margin-bottom: 50px;
+}
+
+.contacts-info p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 21px;
+}
+
+.map-header h2 {
+    font-family: 'Playfair Display SC', serif;
+    font-weight: 700;
+    font-size: 30px;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.send-mail {
+    height: 600px;
+    margin-bottom: 50px;
+}
+
+.form-header h3 {
+    text-align: center;
+    margin-right: 0;
+    margin-left: 0;
+    margin-bottom: 50px;
+    color: rgb(38,37,37);
+    font-family: 'Playfair Display SC', serif;
+    font-weight: 700;
+    font-size: 36px;
+}
+
+.form-body ul {
+    list-style: none;
+    margin-left: 470px;
+}
+
+.input-field {
+    border-color: rgb(57, 56, 55);
+    border-width: thin;
+    border-radius: 3px;
+    display: block;
+    padding: 10px;
+    width: 350px;
+    margin-bottom: 15px;
+    font-family: 'Playfair Display SC', serif;
+}
+
+.form-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 21px;
+    font-weight: 700;
+}
+
+.form-field textarea {
+    width: 350px;
+    height: 100px;
+}
 
 
 
+/* BOOKING */
+.sep-wrap {
+    line-height: 0.5;
+    text-align: center;
+}
 
+.sep-wrap span {
+    display: inline-block;
+    position: relative;  
+    color: black;
+    font-family:'Cormorant Garamond', serif; 
+    font-size: 24px;
+    font-style: italic;
+}
 
+.sep-wrap span:before,
+.sep-wrap span:after {
+    content: "";
+    position: absolute;
+    height: 5px;
+    border-bottom: 1px solid black;
+    top: 0;
+    width: 200px;
+}
 
+.sep-wrap span:before {
+    right: 100%;
+    margin-right: 15px;
+}
 
+.sep-wrap span:after {
+    left: 100%;
+    margin-left: 15px;
+}
 
+#book-form-header h3 {
+    margin-top: 100px;
+    padding-top: 50px;
+    color: rgb(224,178,139);
+    font-family:'Cormorant Garamond', serif; 
+    font-size: 40px;
+}
 
+.form-wrapper {
+    background-color: rgb(38,37,37);;
+    width: 700px;
+    padding-bottom: 80px;
+    margin-left: 300px;
+    margin-bottom: 150px;
+}
 
+.book-label {
+    color: white;
+    font-weight: 400;
+}
 
+.book-button {
+    display: block;
+    width: 200px;
+    height: 50px;
+    background-color: black;
+    border-radius: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 12px;
+    padding-bottom: 15px;
+    text-align: center;
+    margin-top: 50px;
+    font-size: 20px;
+    font-family: 'Playfair Display SC', serif;
+    font-weight: 700;
+    background-color: rgb(224,178,139);
+    color: rgb(38,37,37);
+    text-decoration: none;
+    transition: all 0.3s ease-in-out 0s;
+    box-shadow: 0px 0px 24px -4px rgba(0,0,0,0.75);
+    border: none;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.book-button:hover {
+    background-color: white;
+}
 
 
 

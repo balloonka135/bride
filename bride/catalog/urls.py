@@ -20,5 +20,9 @@ urlpatterns = [
     # url(r'^about-us/$', views.index, name='about-us'),
     re_path(r'^about/$', views.about_us, name='about_us'),
     re_path(r'^designers/$', views.designers, name='designers'),
+    re_path(r'^contacts/$', views.contacts, name='contacts'),
+    re_path(r'^contacts/contact_us/$', views.contact_us, name='contact_us'),
+    re_path(r'^booking/$', views.booking, name='booking'),
+    re_path(r'^booking/book/$', views.book_appoint, name='book_appoint'),
     re_path(r'^$', views.index, name='index'),
 ]

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    {% block title %}<title>Welcome to Adeline</title>{% endblock %}
+    <title>{% block title %}Welcome to Adeline{% endblock %}</title>
     <link rel="shortcut icon" type="image/png" href="{% static "img/favicon.png" %}"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
@@ -65,7 +65,7 @@
                             <i class="fa fa-lg fa-search"></i>
                             <span>Search</span>
                         </a>
-                        <a href="" class="icon-link">
+                        <a href="{% url 'catalog:contacts' %}" class="icon-link">
                             <i class="fa fa-lg fa-map-marker-alt"></i>
                             <span>Location</span>
                         </a>
@@ -224,81 +224,21 @@
                                 <span class="animated_line"></span>
                             </a>
                         </li><li class="menu-item" id="nav-menu-6">
-                            <a href="wedding_dresses" class="drop-button">
+                            <a href="{% url 'catalog:index' %}" class="drop-button">
                                 <span class="item_inner">
-                                    <span class="item_text">Весільні сукні</span>
+                                    <span class="item_text">Love stories</span>
                                 </span>
                                 <span class="animated_line"></span>
                             </a>
-                            <div class="drop_down_list">
-                                <div class="inner">
-                                    <ul>
-                                        <li class="nav-menu-item">
-                                            <a href="wed_collection#1">
-                                                <span class="item_inner">
-                                                    <span class="item_text">Collection</span>
-                                                </span>
-                                                <span class="animated_line"></span>
-                                            </a>
-                                        </li>
-                                        <li class="nav-menu-item">
-                                            <a href="wed_collection#1">
-                                                <span class="item_inner">
-                                                    <span class="item_text">Collection</span>
-                                                </span>
-                                                <span class="animated_line"></span>
-                                            </a>
-                                        </li>
-                                        <li class="nav-menu-item">
-                                            <a href="wed_collection#1">
-                                                <span class="item_inner">
-                                                    <span class="item_text">Collection</span>
-                                                </span>
-                                                <span class="animated_line"></span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
                         </li><li class="menu-item" id="nav-menu-7">
-                            <a href="{% url 'catalog:index' %}" class="drop-button">
+                            <a href="{% url 'catalog:booking' %}" class="drop-button">
                                 <span class="item_inner">
-                                    <span class="item_text">Весільні сукні</span>
+                                    <span class="item_text">Примірка</span>
                                 </span>
                                 <span class="animated_line"></span>
                             </a>
-                            <div class="drop_down_list">
-                                <div class="inner">
-                                    <ul>
-                                        <li class="nav-menu-item">
-                                            <a href="wed_collection#1">
-                                                <span class="item_inner">
-                                                    <span class="item_text">Collection</span>
-                                                </span>
-                                                <span class="animated_line"></span>
-                                            </a>
-                                        </li>
-                                        <li class="nav-menu-item">
-                                            <a href="wed_collection#1">
-                                                <span class="item_inner">
-                                                    <span class="item_text">Collection</span>
-                                                </span>
-                                                <span class="animated_line"></span>
-                                            </a>
-                                        </li>
-                                        <li class="nav-menu-item">
-                                            <a href="wed_collection#1">
-                                                <span class="item_inner">
-                                                    <span class="item_text">Collection</span>
-                                                </span>
-                                                <span class="animated_line"></span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
                         </li><li class="menu-item" id="nav-menu-8">
-                            <a href="{% url 'catalog:index' %}" class="drop-button">
+                            <a href="{% url 'catalog:contacts' %}" class="drop-button">
                                 <span class="item_inner">
                                     <span class="item_text">Контакти</span>
                                 </span>
@@ -340,8 +280,8 @@
                 <div class="one-quater">
                     <h3>Про нас</h3>
                     <ul class="footer-list">
-                        <li class="footer-menu-item"><a href="">Про нас</a></li>
-                        <li class="footer-menu-item"><a href="">Контакти</a></li>
+                        <li class="footer-menu-item"><a href="{% url 'catalog:about_us' %}">Про нас</a></li>
+                        <li class="footer-menu-item"><a href="{% url 'catalog:contacts' %}">Контакти</a></li>
                     </ul>
                 </div>
                 <div class="one-quater" id="oq">

@@ -80,7 +80,6 @@ class Product(models.Model):
     style = models.EmbeddedModelField(model_container=Style)
     fabric = models.EmbeddedModelField(model_container=Fabric)
     fastener_type = models.CharField(max_length=100, db_index=True, verbose_name='Dress fastener type') # тип застежки
-    image = models.ImageField(upload_to='products/%Y/%m/%d/', blank=True, verbose_name='Product image')
     description = models.TextField(blank=True, verbose_name='Product description')
     price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name='Price')
     available = models.BooleanField(default=True, verbose_name='In stock')
@@ -99,6 +98,37 @@ class Product(models.Model):
 
     def get_absolute_url(self):
         return reverse('catalog:ProductDetail', args=[self.id, self.slug])
+
+
+class ProductImage(models.Model):
+    image = models.ImageField(upload_to='products/%Y/%m/%d/', blank=True, verbose_name='Product image')
+    product = models.EmbeddedModelField(model_container=Product)
+
+
+class MailBox(models.Model):
+    username = models.CharField(max_length=200, db_index=True, verbose_name='Client Name')
+    phone = models.IntegerField()
+    message = models.TextField()
+    sender = models.EmailField()
+    objects = models.DjongoManager()
+
+    def __str__(self):
+        return self.username
+
+
+class Appointment(models.Model):
+    username = models.CharField(max_length=200, db_index=True, verbose_name='Client Name')
+    phone = models.IntegerField()
+    message = models.TextField()
+    sender = models.EmailField()
+    date_of_appoint = models.DateField(null=True, blank=True)
+    date_of_wedding = models.DateField(null=True, blank=True)
+    objects = models.DjongoManager()
+
+    def __str__(self):
+        return self.username
+
+
 
 
 

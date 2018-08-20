@@ -1,9 +1,13 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, render_to_response, redirect
+from django.urls import reverse
+from django.core.mail import send_mail
+from django.template import RequestContext
 from django.views.generic import ListView, DetailView
-from .models import Category, Product, Shape, Style, Fabric, Collection
+from .models import Category, Product, Shape, Style, Fabric, Collection, MailBox, Appointment
+from .forms import ContactUsForm, BookAppointForm
 
 
 def index(request):
@@ -16,6 +20,14 @@ def about_us(request):
 
 def designers(request):
     return render(request, 'catalog/designers.html', {})
+
+
+def contacts(request):
+    return render(request, 'catalog/contacts.html', {})
+
+
+def booking(request):
+    return render(request, 'catalog/book_appointment.html', {})
 
 
 def productList(request, category_slug=None):
@@ -48,6 +60,77 @@ def productDetail(request, id, slug):
         'product': product, 
         'related_products': rec_products
     })
+
+
+def contact_us(request):
+
+    if request.method == 'POST':
+        contact_form = ContactUsForm(request.POST)
+        if contact_form.is_valid():  # All validation rules pass
+            contact_form.save(commit=True)
+
+            subject = 'Adelini MailBox'
+            sender = contact_form.cleaned_data['sender']
+            message = contact_form.cleaned_data['message']
+            username = contact_form.cleaned_data['username']
+            phone = contact_form.cleaned_data['phone']
+            recipients = ['adelini.wedding.dress@gmail.com']
+
+            MailBox.objects.create(username=username, phone=phone, sender=sender, message=message)
+
+            # add extra info to e-mail
+            message += '\r\n\r\n\r\nПисьмо было отправлено с сайта wwww.adelini.wedding.com.ua\r\nАдрес для ответа: {} \r\nИмя клиента: {} \r\nТелефон: +380{} \r\n'.format(sender, username, phone)
+
+            try:
+                send_mail(subject, message, sender, recipients, fail_silently=False)
+            except:
+                send_mail(subject, message, sender, recipients, fail_silently=False)
+
+            # return render_to_response('catalog/success.html', context_instance=RequestContext(request))
+            return render(request, 'catalog/success.html')
+    # print(contact_form.errors)
+    return render(request, 'catalog/fail.html')
+
+
+def book_appoint(request):
+    if request.method == 'POST':
+        contact_form = BookAppointForm(request.POST)
+        if contact_form.is_valid():  # All validation rules pass
+            contact_form.save(commit=True)
+            subject = 'Adelini Booking'
+            sender = contact_form.cleaned_data['sender']
+            message = contact_form.cleaned_data['message']
+            username = contact_form.cleaned_data['username']
+            phone = contact_form.cleaned_data['phone']
+            date_of_appoint = contact_form.cleaned_data['date_of_appoint']
+            date_of_wedding = contact_form.cleaned_data['date_of_wedding']
+            recipients = ['adelini.wedding.dress@gmail.com']
+
+            Appointment.objects.create(username=username, phone=phone, sender=sender,
+                message=message, date_of_appoint=date_of_appoint, date_of_wedding=date_of_wedding
+            )
+
+            # add extra info to e-mail
+            message += '\r\n\r\n\r\nПисьмо было отправлено с сайта wwww.adelini.wedding.com.ua\r\nАдрес для ответа: {} \r\nИмя клиента: {} \r\nТелефон: +380{} \r\nДата примерки: {}\r\nДата свадьбы: {}\r\n'.format(sender, username, phone, date_of_appoint, date_of_wedding)
+
+            try:
+                send_mail(subject, message, sender, recipients, fail_silently=False)
+            except:
+                send_mail(subject, message, sender, recipients, fail_silently=False)
+            # return render_to_response('catalog/success.html', context_instance=RequestContext(request))
+            return render(request, 'catalog/success.html')
+        else:
+            print('***************************')
+            print(contact_form.errors)
+            return render(request, 'catalog/fail.html')
+    else:
+        contact_form = BookAppointForm()
+
+    return redirect(reverse('book_appoint'))
+
+
+
+
 
 
 # class ProductList(ListView):

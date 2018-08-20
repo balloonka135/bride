@@ -5,17 +5,20 @@
 {% endblock %}
 
 {% block content %}
-    <div class="page-header">
+
+    <div class="aboutpage-header">
         <div class="title-area">
             <div class="container">
-                <div class="title-holder">
-                    <h1>Book an appointment</h1>
-                </div>
-                <span class="subtitle-sep">
-                    <span class="sep-line-before"></span>
-                    <span class="sep-content">Meet your dream dress</span>
-                    <span class="sep-line-after"></span>
+                <h1>Запис на примірку</h1>
+                 <!--
+                <hr class="hr-aboutpage" >
+                <h3>Знайди свою омріяну сукню</h3>
+                -->
+                <div class="sep-wrap">
+                <span data-line-width="200 px">
+                    <p><span>Знайди свою омріяну сукню</span></p>
                 </span>
+                </div>
             </div>
         </div>
     </div>
@@ -24,51 +27,52 @@
         <div class="container">
             <div class="form-wrapper">
                 <!-- ADD ACTION -->
-                <form action="" method="post">
+                <form action="{% url 'catalog:book_appoint' %}" method="post">
+                    {% csrf_token %}
                     <div class="form-header" id="book-form-header">
-                        <h3>Let's make our first date!</h3>
+                        <h3>Давай знайомитись!</h3>
                     </div>
                     <div class="form-body" id="book-form-body">
-                        <ul class="form-fields">
+                        <ul class="form-fields" style="margin-left: 170px;">
                             <li class="form-field" id="bf_1">
-                                <label for="" class="form-label">Name<span class="field_required"></span></label>
+                                <label for="" class="form-label book-label">Ваше ім'я<span class="field_required"></span></label>
                                 <div class="input-container">
-                                    <input type="text" class="input-field" placeholder="Name" aria-required="true" aria-invalid="false">
+                                    <input name="username" type="text" class="input-field" placeholder="Ім'я" aria-required="true" aria-invalid="false">
                                 </div>
                             </li>
-                            <li class="form-field" id="bf_2">
-                                <label for="" class="form-label">Phone<span class="field_required"></span></label>
+                            <li class="form-field" id="f_2">
+                                <label for="" class="form-label book-label">Телефон<span class="field_required"></span></label>
                                 <div class="input-container">
-                                    <input type="text" class="input-field" placeholder="Phone" aria-required="true" aria-invalid="false">
+                                    <input name="phone" type="text" class="input-field" placeholder="+380" aria-required="true" aria-invalid="false">
                                 </div>
                             </li>
                             <li class="form-field" id="bf_3">
-                                <label for="" class="form-label">Email<span class="field_required"></span></label>
+                                <label for="" class="form-label book-label">E-mail<span class="field_required"></span></label>
                                 <div class="input-container">
-                                    <input type="text" class="input-field" placeholder="Email" aria-required="true" aria-invalid="false">
+                                    <input name="sender" type="text" class="input-field" placeholder="E-mail" aria-required="true" aria-invalid="false">
                                 </div>
                             </li>
                             <li class="form-field" id="bf_4">
-                                <span class="bf-label">Choose date of fitting</span>
+                                <span class="form-label book-label">Оберіть дату примірки</span>
                                 <div class="input-container">
-                                    <input type="date" name="date_bf" aria-required="true" aria-invalid="false">
+                                    <input name="date_of_appoint" type="date" name="date_bf" aria-required="true" aria-invalid="false" class="input-field">
                                 </div>
                             </li>
                             <li class="form-field" id="bf_5">
-                                <span class="bf-label">Date of Wedding</span>
+                                <span class="form-label book-label">Дата весілля</span>
                                 <div class="input-container">
-                                    <input type="date" name="date_bf" aria-required="true" aria-invalid="false">
+                                    <input name="date_of_wedding" type="date" name="date_bf" aria-required="true" aria-invalid="false" class="input-field">
                                 </div>
                             </li>
                             <li class="form-field" id="bf_6">
-                                <label for="" class="form-label">Message<span class="field_required"></span></label>
+                                <label for="" class="form-label book-label">Повідомлення<span class="field_required"></span></label>
                                 <div class="input-container">
-                                    <textarea name="input_4" id="input_4" cols="50" rows="10" class="textarea-field" aria-required="true" aria-invalid="false"></textarea>
+                                    <textarea name="message" id="input_4" cols="50" rows="10" class="textarea-field" aria-required="true" aria-invalid="false"></textarea>
                                 </div>
                             </li>
                         </ul>
                         <div class="form-footer" id="bf-button">
-                            <input type="submit" id="form-submit-button" class="main-button" value="Submit" onclick="" onkeypress="">
+                            <input type="submit" id="form-submit-button" class="book-button" value="Записатись" onclick="" onkeypress="" style="margin-left: 250px;">
                         </div>
                     </div>
                 </form>

@@ -122,3 +122,15 @@ USE_TZ = True
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'adelini.wedding.dress@gmail.com'
+EMAIL_HOST_PASSWORD = 'adelini2018'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
+# server = smtplib.SMTP('smtp.gmail.com', EMAIL_PORT)
+# server.ehlo()
+# server.starttls()
+# server.login(EMAIL_HOST_USER, EMAIL_HOST_PASSWORD)
