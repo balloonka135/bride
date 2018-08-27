@@ -77,7 +77,7 @@
                 <nav class="main_menu drop_down">
                     <ul class="header-menu clearfix" style="margin-bottom: 0px;">
                         <li class="menu-item" id="nav-menu-1">
-                            <a href="{% url 'catalog:index' %}" class="drop-button">
+                            <a href="{% url 'catalog:product_list_cat' 'wedding_dress' %}" class="drop-button">
                                 <span class="item_inner">
                                     <span class="item_text">Весільні сукні</span>
                                 </span>
@@ -86,6 +86,7 @@
                             <div class="drop_down_list">
                                 <div class="inner">
                                     <ul>
+                                        <!--
                                         <li class="nav-menu-item">
                                             <a href="wed_collection#1">
                                                 <span class="item_inner">
@@ -110,11 +111,24 @@
                                                 <span class="animated_line"></span>
                                             </a>
                                         </li>
+                                        -->
+                                        {% for coll in collections %}
+                                            {% if coll.category.name == 'wedding_dress' %}
+                                                <li class="nav-menu-item">
+                                                    <a href="{% url 'catalog:product_list_coll' coll.category.slug coll.slug %}">
+                                                    <span class="item_inner">
+                                                        <span class="item_text">{{ coll.name }}</span>
+                                                    </span>
+                                                    <span class="animated_line"></span>
+                                                    </a>
+                                                </li>
+                                            {% endif %}
+                                        {% endfor %}
                                     </ul>
                                 </div>
                             </div>
                         </li><li class="menu-item" id="nav-menu-2">
-                            <a href="{% url 'catalog:index' %}" class="drop-button">
+                            <a href="{% url 'catalog:product_list_cat' 'evening_dress' %}" class="drop-button">
                                 <span class="item_inner">
                                     <span class="item_text">Вечірні сукні</span>
                                 </span>
@@ -123,30 +137,18 @@
                             <div class="drop_down_list">
                                 <div class="inner">
                                     <ul>
-                                        <li class="nav-menu-item">
-                                            <a href="wed_collection#1">
-                                                <span class="item_inner">
-                                                    <span class="item_text">Collection</span>
-                                                </span>
-                                                <span class="animated_line"></span>
-                                            </a>
-                                        </li>
-                                        <li class="nav-menu-item">
-                                            <a href="wed_collection#1">
-                                                <span class="item_inner">
-                                                    <span class="item_text">Collection</span>
-                                                </span>
-                                                <span class="animated_line"></span>
-                                            </a>
-                                        </li>
-                                        <li class="nav-menu-item">
-                                            <a href="wed_collection#1">
-                                                <span class="item_inner">
-                                                    <span class="item_text">Collection</span>
-                                                </span>
-                                                <span class="animated_line"></span>
-                                            </a>
-                                        </li>
+                                        {% for coll in collections %}
+                                            {% if coll.category.name == 'evening_dress' %}
+                                                <li class="nav-menu-item">
+                                                    <a href="{% url 'catalog:product_list_coll' coll.category.slug coll.slug %}">
+                                                    <span class="item_inner">
+                                                        <span class="item_text">{{ coll.name }}</span>
+                                                    </span>
+                                                    <span class="animated_line"></span>
+                                                    </a>
+                                                </li>
+                                            {% endif %}
+                                        {% endfor %}
                                     </ul>
                                 </div>
                             </div>
@@ -157,36 +159,6 @@
                                 </span>
                                 <span class="animated_line"></span>
                             </a>
-                            <div class="drop_down_list">
-                                <div class="inner">
-                                    <ul>
-                                        <li class="nav-menu-item">
-                                            <a href="wed_collection#1">
-                                                <span class="item_inner">
-                                                    <span class="item_text">Collection</span>
-                                                </span>
-                                                <span class="animated_line"></span>
-                                            </a>
-                                        </li>
-                                        <li class="nav-menu-item">
-                                            <a href="wed_collection#1">
-                                                <span class="item_inner">
-                                                    <span class="item_text">Collection</span>
-                                                </span>
-                                                <span class="animated_line"></span>
-                                            </a>
-                                        </li>
-                                        <li class="nav-menu-item">
-                                            <a href="wed_collection#1">
-                                                <span class="item_inner">
-                                                    <span class="item_text">Collection</span>
-                                                </span>
-                                                <span class="animated_line"></span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
                         </li><li class="menu-item" id="nav-menu-4">
                             <a href="{% url 'catalog:about_us' %}" class="drop-button">
                                 <span class="item_inner">

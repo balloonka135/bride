@@ -1,23 +1,17 @@
 from django.urls import path, re_path
+from django.conf import settings
+from django.conf.urls.static import static
 
 from . import views
 
 app_name = 'catalog'
-# urlpatterns = [
-#     url('', views.index, name='index'),
-#     url('publishers/', PublisherList.as_view()),
-# ]
 
 urlpatterns = [
-    re_path(r'^browse/(?P<category_slug>[-\w]+)/$', views.productList, name='ProductListByCategory'),
     re_path(r'^browse/(?P<id>\d+)/(?P<slug>[-\w]+)/$', views.productDetail, name='ProductDetail'),
-    re_path(r'^browse/$', views.productList, name='ProductList'),
-    # url(r'^browse/wedding-dresses/$', views.index, name='wed-dresses'),
-    # url(r'^browse/prom-dresses/$', views.index, name='prom-dresses'),
-    # url(r'^browse/accessories/$', views.index, name='accessories'),
-    # url(r'^browse/wedding-dresses/(?P<collection_slug>[-\w]+)/$', views.index, name='wed-by-collection'),
-    # url(r'^browse/prom-dresses/(?P<collection_slug>[-\w]+)/$', views.index, name='prom-by-collection'),
-    # url(r'^about-us/$', views.index, name='about-us'),
+    re_path(r'^browse/(?P<category_slug>[-\w]+)/$', views.product_list, name='product_list_cat'),
+    re_path(r'^browse/(?P<category_slug>[-\w]+)/(?P<collection_slug>[\w\-]+)/$', views.product_list, name='product_list_coll'),
+    re_path(r'^browse/accessories/$', views.accessList, name='accessList'),
+    re_path(r'^browse/$', views.product_list, name='product_list'),
     re_path(r'^about/$', views.about_us, name='about_us'),
     re_path(r'^designers/$', views.designers, name='designers'),
     re_path(r'^contacts/$', views.contacts, name='contacts'),
@@ -26,3 +20,5 @@ urlpatterns = [
     re_path(r'^booking/book/$', views.book_appoint, name='book_appoint'),
     re_path(r'^$', views.index, name='index'),
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

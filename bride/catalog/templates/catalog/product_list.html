@@ -4,7 +4,8 @@
     {% if category %}
         {{ category.name }}
     {% else %}
-        {{ Product catalog }}
+        Catalog page
+    {% endif %}
 {% endblock %}
 
 {% block content %}
@@ -29,14 +30,17 @@
                         <form action="adeline.com" method="get" id="search-form">
                             <div>
                                 <label for="s" class="search-form-text">Search for:</label>
-                                <input type="text" value="s" id="s" placeholder="Enter style">
+                                <input type="text" value="" id="s" placeholder="Enter style">
                                 <input type="submit" id="search-submit"> <!-- search icon -->
                             </div>
                         </form>
                     </div>
 
                     <div class="widget-filter-1">
-                        <h4>Collection</h4>
+                        <h3>Collection</h4>
+                        {% if collection %}
+                            <h4>{{ collection.name }}</h3>
+                        {% endif %}
                         <ul>
                         {% for coll in collections %}
                             <li><a href="{{ coll.get_absolute_url }}">{{ coll.name }}</a></li>

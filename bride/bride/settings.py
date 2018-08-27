@@ -76,9 +76,10 @@ WSGI_APPLICATION = 'bride.wsgi.application'
 
 DATABASES = {
     'default': {
-        # 'ENGINE': 'django.db.backends.sqlite3',
-        'ENGINE': 'djongo',
-        'NAME': 'bride_db',
+        'ENGINE': 'django.db.backends.sqlite3',
+        # 'ENGINE': 'djongo',
+        # 'NAME': 'bride_db',
+        'NAME': os.path.join(BASE_DIR, 'bride_db.sqlite3'),
     }
 }
 
@@ -121,7 +122,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+MEDIA_ROOT = '/Users/irinanazarchuk/Documents/code/bride_project/bride/catalog/media/'
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 
 EMAIL_HOST = 'smtp.gmail.com'

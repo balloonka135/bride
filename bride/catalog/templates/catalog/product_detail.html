@@ -21,20 +21,25 @@
         <div class="template-holder">
             <div itemscope class="product-scope">
                 <div class="single-product-image-wrapper">
+                    <!--
                     <div class="image-wrap">
                         <a href="{% if product.image %}{{ product.image.url }}{% else %}{% static "img/no-image.jpg"%}{% endif %}" itemprop="image" class="main-image" title="{{ product.name }}">
                             <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static "img/no-image.jpg"%}{% endif %}" alt="{{ product.name }}">
-                            <!-- ADD ZOOM TO IMAGE -->
+                            
                             <div class="mouse-zoom" style="display: none; z-index: 98; position: absolte; width: 113px; height: 160px; opacity: 0.5; left: 250px; top: 208px; background-position: -250px -280px;"></div>
                         </a>
                         <p>
                             <a href="{% if product.image %}{{ product.image.url }}{% else %}{% static "img/no-image.jpg"%}{% endif %}" class="zoom-button">Click to Zoom</a>
                         </p>
-                        <!-- ADD PHOTO GALLERY -->
+                        
                         <div class="thumbnails">
                             <a href="{% if product.image %}{{ product.image.url }}{% else %}{% static "img/no-image.jpg"%}{% endif %}" class="zoom-gallery"><img src="{% if product.image %}{{ product.image.url }}{% else %}{% static "img/no-image.jpg"%}{% endif %}" alt="" class="shop-thumbnail"></a>
                         </div>
                     </div>
+                    -->
+                    {% for image in images %}
+                        <img src="{{ image.url }}" alt="">
+                    {% endfor %}
                 </div>
 
                 <div class="product-summary">

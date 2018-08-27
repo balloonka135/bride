@@ -6,12 +6,15 @@ from django.urls import reverse
 from django.core.mail import send_mail
 from django.template import RequestContext
 from django.views.generic import ListView, DetailView
-from .models import Category, Product, Shape, Style, Fabric, Collection, MailBox, Appointment
+from .models import Category, Product, Shape, Style, Fabric, Collection, MailBox, Appointment, ProductImage
 from .forms import ContactUsForm, BookAppointForm
 
 
 def index(request):
-    return render(request, 'catalog/index.html', {})
+    # query embedded fields
+    # entries = Entry.objects.filter(blog={'name': 'Beatles Blog'})
+    collections = Collection.objects.all()
+    return render(request, 'catalog/index.html', {'collections': collections})
 
 
 def about_us(request):
@@ -30,8 +33,9 @@ def booking(request):
     return render(request, 'catalog/book_appointment.html', {})
 
 
-def productList(request, category_slug=None):
+def product_list(request, category_slug=None, collection_slug=None):
     category = None
+    collection = None
     categories = Category.objects.all()
     collections = Collection.objects.all()
     products = Product.objects.all()
@@ -42,28 +46,34 @@ def productList(request, category_slug=None):
     if category_slug:
         category = get_object_or_404(Category, slug=category_slug)
         products = products.filter(category=category)
+    if collection_slug:
+        collection = get_object_or_404(Collection, slug=collection_slug)
+        products = products.filter(collection=collection)
     return render(request, 'catalog/product_list.html', {
         'category': category,
+        'collection': collection,
         'categories': categories,
         'collections': collections,
         'products': products,
-        'shapes': shapes, 
-        'styles': styles, 
+        'shapes': shapes,
+        'styles': styles,
         'fabrics': fabrics
     })
 
 
 def productDetail(request, id, slug):
     product = get_object_or_404(Product, id=id, slug=slug)
+    images = ProductImage.objects.filter(product=product)
     rec_products = Product.objects.filter(collection=product.collection)  # products from same collection
+    rec_products = Product.objects.exclude(slug=product.slug)
     return render(request, 'catalog/product_detail.html', {
-        'product': product, 
+        'product': product,
+        'images': images,
         'related_products': rec_products
     })
 
 
 def contact_us(request):
-
     if request.method == 'POST':
         contact_form = ContactUsForm(request.POST)
         if contact_form.is_valid():  # All validation rules pass
@@ -120,13 +130,16 @@ def book_appoint(request):
             # return render_to_response('catalog/success.html', context_instance=RequestContext(request))
             return render(request, 'catalog/success.html')
         else:
-            print('***************************')
             print(contact_form.errors)
             return render(request, 'catalog/fail.html')
     else:
         contact_form = BookAppointForm()
 
     return redirect(reverse('book_appoint'))
+
+
+def accessList(request):
+    pass
 
 
 

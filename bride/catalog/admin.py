@@ -2,21 +2,33 @@
 from __future__ import unicode_literals
 
 from django.contrib import admin
-from .models import Category, Product, Shape, Style, Collection, MailBox, Appointment, Fabric
+from .models import Category, Product, Shape, Style, Collection, MailBox, Appointment, Fabric, ProductImage
 
 
 # admin.site.register([Category, Product])
 
+class CollectionInline(admin.TabularInline):
+    model = Collection
+    extra = 0
+
+
+class ProductImageInline(admin.TabularInline):
+    model = ProductImage
+    extra = 0
+
+
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ['name', 'slug']
     prepopulated_fields = {'slug': ('name', )}
+    inlines = [CollectionInline, ]
 
 
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ['name', 'slug', 'price', 'collection', 'shape', 'style', 'fabric', 'fastener_type', 'available', 'created', 'updated']
+    list_display = ['name', 'slug', 'price', 'shape', 'style', 'fabric', 'fastener_type', 'available', 'created', 'updated']
     list_filter = ['available', 'created', 'updated']
     list_editable = ['price', 'available']
     prepopulated_fields = {'slug': ('name', )}
+    inlines = [ProductImageInline, ]
 
 
 class ShapeAdmin(admin.ModelAdmin):
@@ -30,7 +42,7 @@ class StyleAdmin(admin.ModelAdmin):
 
 
 class CollectionAdmin(admin.ModelAdmin):
-    list_display = ['name', 'slug']
+    list_display = ['name', 'category', 'slug']
     prepopulated_fields = {'slug': ('name', )}
 
 
@@ -49,10 +61,10 @@ class AppointmentAdmin(admin.ModelAdmin):
 
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Product, ProductAdmin)
+admin.site.register(ProductImage)
 admin.site.register(Shape, ShapeAdmin)
 admin.site.register(Style, StyleAdmin)
 admin.site.register(Collection, CollectionAdmin)
 admin.site.register(Fabric, FabricAdmin)
 admin.site.register(MailBox, MailBoxAdmin)
 admin.site.register(Appointment, AppointmentAdmin)
-
