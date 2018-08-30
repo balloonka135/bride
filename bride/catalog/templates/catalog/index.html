@@ -70,7 +70,7 @@
         <div class="container">
             <div class="inner-margin-section">
                     <div class="column-first-sqr">
-                        <a class="image-with-text-link" href=""></a>
+                        <a class="image-with-text-link" href="{% url 'catalog:product_list_cat' 'wedding_dress' %}">
                         <img src="{% static "img/wed_dress.jpg" %}" alt="" id="img_wed" class="bright-filter">
                         <div class="front-holder" id="fh1" style="left: 100px;">
                             <h2 style="font-family:'Playfair Display SC', serif; font-weight: 700; font-size: 36px; text-shadow:  0px 0px 20px rgb(38,37,37);">Весільні сукні</h2>
@@ -79,10 +79,11 @@
                                 <em style="font-family:'Cormorant Garamond', serif; font-size: 24px; text-shadow:  0px 0px 20px rgb(38,37,37);">Timeless &amp; Elegant</em>
                             </div>
                         </div>
+                        </a>
                     </div>
                     <div class="column-second-sqr">
                         <div class="column-second-hf-sqr-1">
-                            <a class="image-with-text-link" href=""></a>
+                            <a class="image-with-text-link" href="{% url 'catalog:product_list_cat' 'evening_dress' %}">
                             <img src="{% static "img/prom_dress.jpg" %}" alt="" id="img_prom" class="bright-filter">
                             <div class="front-holder" id="fh2" style="right: 100px;">
                                 <h2 style="font-family:'Playfair Display SC', serif; font-weight: 700; font-size: 36px; text-shadow:  0px 0px 20px rgb(38,37,37);">Вечірні сукні</h2>
@@ -91,6 +92,7 @@
                                     <em style="font-family:'Cormorant Garamond', serif; font-size: 24px; text-shadow:  0px 0px 20px rgb(38,37,37);">Timeless &amp; Elegant</em>
                                 </div>
                             </div>
+                            </a>
                         </div>
                         <div class="column-second-hf-sqr-2">
                             <a class="image-with-text-link" href=""></a>

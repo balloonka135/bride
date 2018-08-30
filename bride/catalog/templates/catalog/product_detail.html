@@ -37,8 +37,12 @@
                         </div>
                     </div>
                     -->
-                    {% for image in images %}
-                        <img src="{{ image.url }}" alt="">
+                    {% for ig in images %}
+                        {% if ig.image %}
+                            <a href="{{ ig.image.url }}"><img src="{{ ig.image.url }}" alt=""></a>
+                        {% else %}
+                            <p>Image upload error</p>
+                        {% endif %}
                     {% endfor %}
                 </div>
 
@@ -54,9 +58,9 @@
                         <span class="single-product-title-separator"></span>
                     </div>
 
-                    <!-- MAKE COLLAPSE MENU -->
                     <div class="details">
                         <h3 class="product-header">Details</h3>
+                        <!-- collapse menu -->
                         <i class="fa-plus fa-minus" aria-hidden="true"></i>
                         <div class="details-list" style="display: none/block;">
                             <p class="detail-item">Shape: {{ product.shape }}</p>

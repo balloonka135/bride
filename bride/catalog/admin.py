@@ -9,12 +9,12 @@ from .models import Category, Product, Shape, Style, Collection, MailBox, Appoin
 
 class CollectionInline(admin.TabularInline):
     model = Collection
-    extra = 0
+    extra = 1
 
 
 class ProductImageInline(admin.TabularInline):
     model = ProductImage
-    extra = 0
+    extra = 1
 
 
 class CategoryAdmin(admin.ModelAdmin):
@@ -24,9 +24,9 @@ class CategoryAdmin(admin.ModelAdmin):
 
 
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ['name', 'slug', 'price', 'shape', 'style', 'fabric', 'fastener_type', 'available', 'created', 'updated']
+    list_display = ['name', 'category', 'price', 'shape', 'style', 'fabric', 'collection', 'thumbnail', 'available', 'created', 'updated']
     list_filter = ['available', 'created', 'updated']
-    list_editable = ['price', 'available']
+    list_editable = ['price', 'available', 'thumbnail']
     prepopulated_fields = {'slug': ('name', )}
     inlines = [ProductImageInline, ]
 

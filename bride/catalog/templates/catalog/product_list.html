@@ -1,5 +1,8 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load widget_tweaks %}
+{% load endless %}
+
 {% block title %}
     {% if category %}
         {{ category.name }}
@@ -12,9 +15,10 @@
     <div class="title-outer">
         <div class="container">
             <div class="title-subtitle-holder">
-                <h1><span>{{ category.name }}</span></h1>
+                <h2 class="title-category">{{ category.name }}</h2>
+                <hr class="hr-aboutpage" style="background-color: rgb(38,37,37);">
                 <div class="subtitle">
-                    <a href="adeline.com">Home</a>
+                    <a href="{% url 'catalog:index' %}">Home</a>
                     <span class="delimeter">&nbsp;/&nbsp;</span>
                     <span class="current">{{ category.name }}</span>
                 </div>
@@ -25,67 +29,114 @@
     <div class="catalog-list">
         <div class="container">
             <div class="column1">
-                <aside class="sidebar">
+                <aside class="filter-sidebar">
+                    <!--
                     <div class="product-search">
                         <form action="adeline.com" method="get" id="search-form">
                             <div>
                                 <label for="s" class="search-form-text">Search for:</label>
-                                <input type="text" value="" id="s" placeholder="Enter style">
-                                <input type="submit" id="search-submit"> <!-- search icon -->
+                                <input type="text" value="" id="s" placeholder="Enter dress">
+                                <input type="submit" id="search-submit"> 
                             </div>
                         </form>
                     </div>
+                    -->
+                    
+                    <!--
+                    <form method="get" action="">
+                        <div class="form-group">
+                        {{ filter.form.name.label_tag }}
+                        {% render_field filter.form.name class="form-control" %}
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <span class="glyphicon glyphicon-search"></span> Search
+                        </button>
+                    </form>
+                    -->
+                    
 
+                    <!--
                     <div class="widget-filter-1">
-                        <h3>Collection</h4>
-                        {% if collection %}
-                            <h4>{{ collection.name }}</h3>
+                        <form method="get">
+                            {{ filter.form.as_p }}
+                            <input type="submit"></input>
+                        </form>
+                    </div>
+                    -->
+
+
+                    <form method="get">
+                    <div class="filter-option">
+                        {% if not collection %}
+                            <h4>Колекції</h4>
+                            <hr>
+                            {% for choice in filter.form.collection %}
+                            <a href=""><label class="container checkbox-filter">
+                            {{ choice.tag }} {{ choice.choice_label }}
+                            </label></a>
+                            {% endfor %}
                         {% endif %}
-                        <ul>
-                        {% for coll in collections %}
-                            <li><a href="{{ coll.get_absolute_url }}">{{ coll.name }}</a></li>
-                        {% endfor %}    
-                        </ul>
                     </div>
-                    <div class="widget-filter-1">
-                        <h4>Silhouette</h4>
-                        <ul>
-                        {% for shape in shapes %}
-                            <li><a href="{{ shape.get_absolute_url }}">{{ shape.name }}</a></li>
-                        {% endfor %}    
-                        </ul>
+                    <div class="filter-option">
+                        <h4>Силует</h4>
+                        <hr>
+                        {% for choice in filter.form.shape %}
+                            <a href=""><label class="container checkbox-filter">
+                            {{ choice.tag }} {{ choice.choice_label }}
+                            </label></a>
+                        {% endfor %}
                     </div>
-                    <div class="widget-filter-1">
-                        <h4>Style</h4>
-                        <ul>
-                        {% for style in styles %}
-                            <li><a href="{{ style.get_absolute_url }}">{{ style.name }}</a></li>
-                        {% endfor %}    
-                        </ul>
+                    <div class="filter-option">
+                        <h4>Стиль</h4>
+                        <hr>
+                        {% for choice in filter.form.style %}
+                            <a href=""><label class="container checkbox-filter">
+                            {{ choice.tag }} {{ choice.choice_label }}
+                            </label></a>
+                        {% endfor %}
                     </div>
-                    <div class="widget-filter-1">
-                        <h4>Fabric</h4>
-                        <ul>
-                        {% for fabric in fabrics %}
-                            <li><a href="{{ fabric.get_absolute_url }}">{{ fabric.name }}</a></li>
-                        {% endfor %}    
-                        </ul>
+                    <div class="filter-option">
+                        <h4>Тканини</h4>
+                        <hr>
+                        {% for choice in filter.form.fabric %}
+                            <a href=""><label class="container checkbox-filter">
+                            {{ choice.tag }} {{ choice.choice_label }}
+                            </label></a>
+                        {% endfor %}
                     </div>
+                    <button type="submit" class="filter-button">
+                        Пошук
+                    </button>
+                    </form>
+                    
                 </aside>
             </div>
 
             <div class="column2">
-                <div class="term-description">
-                    <h2>Browse our {{ category.name }}</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem molestiae facilis, harum aliquam iusto aliquid ut optio beatae accusamus ipsam cumque itaque voluptate eum blanditiis? Iusto nemo ad, quo amet.</p>
-                </div>
+                {% if collection %}
+                    <h3 class="dress-title">{{ collection.name }}</h3>
+                {% elif category.slug == 'wedding_dress' %}
+                    <div class="term-description">
+                        <h3 class="dress-title">Знайди свою ідеальну весільну сукню</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem molestiae facilis, harum aliquam iusto aliquid ut optio beatae accusamus ipsam cumque itaque voluptate eum blanditiis? Iusto nemo ad, quo amet.</p>
+                    </div>
+                {% else %}
+                    <div class="term-description">
+                        <h3 class="dress-title">Знайди свою ідеальну вечірню сукню</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem molestiae facilis, harum aliquam iusto aliquid ut optio beatae accusamus ipsam cumque itaque voluptate eum blanditiis? Iusto nemo ad, quo amet.</p>
+                    </div>
+                {% endif %}
                 <ul class="products hover-type">
-                    {% for product in products %}
+                        {% for product in filter.qs %}
                         <li class="product-post">
                             <div class="product-section">
                                 <a href="{{ product.get_absolute_url }}">
                                     <span class="image-wrapper">
-                                        <img width="" height="" src="{% if product.image %}{{ product.image.url }}{% else %}{% static "img/no-image.jpg"%}{% endif %}" alt="">
+                                        {% if product.thumbnail %}
+                                            <a href="{{ product.thumbnail.url }}"><img src="{{ product.thumbnail.url }}" alt=""></a>
+                                        {% else %}
+                                            <p>Image upload error</p>
+                                        {% endif %}
                                     </span>
                                 </a>
                             </div>
@@ -98,36 +149,10 @@
                                 </div>
                             </div>
                         </li>
-                    {% endfor %}
+                        {% endfor %}
+                    
                 </ul>
-                <!-- ADD PAGINATION -->
-                <nav class="list-pagination">
-                    <ul class="page-numbers">
-                        <li><a href="" class="prev page-numbers"><i class="angle-prev"></i></a></li>
-                        <li><a href="" class="page-numbers">1</a></li>
-                        <li><span aria-current="page" class="page-numbers current">2</span></li>
-                        <li><a href="" class="next page-numbers"><i class="angle-next"></i></a></li>
-                    </ul>
-                </nav>
-                <div class="product-category-bottom">
-                    <h2 class="description-title">{{ category.name }}</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure cupiditate modi, quos quidem et ullam! Laboriosam eligendi dolores ad cupiditate consectetur odit, error nihil porro eius, alias aspernatur, voluptatem possimus.</p>
-                </div>
             </div>
         </div>
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 {% endblock %}

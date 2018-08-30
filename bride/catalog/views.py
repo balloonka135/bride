@@ -8,6 +8,7 @@ from django.template import RequestContext
 from django.views.generic import ListView, DetailView
 from .models import Category, Product, Shape, Style, Fabric, Collection, MailBox, Appointment, ProductImage
 from .forms import ContactUsForm, BookAppointForm
+from .filters import WeddingCollectionFilter, EveningCollectionFilter
 
 
 def index(request):
@@ -49,6 +50,11 @@ def product_list(request, category_slug=None, collection_slug=None):
     if collection_slug:
         collection = get_object_or_404(Collection, slug=collection_slug)
         products = products.filter(collection=collection)
+
+    if category.slug == 'wedding_dress':
+        collection_filter = WeddingCollectionFilter(request.GET, queryset=products)
+    else:
+        collection_filter = EveningCollectionFilter(request.GET, queryset=products)
     return render(request, 'catalog/product_list.html', {
         'category': category,
         'collection': collection,
@@ -57,13 +63,14 @@ def product_list(request, category_slug=None, collection_slug=None):
         'products': products,
         'shapes': shapes,
         'styles': styles,
-        'fabrics': fabrics
+        'fabrics': fabrics,
+        'filter': collection_filter
     })
 
 
 def productDetail(request, id, slug):
     product = get_object_or_404(Product, id=id, slug=slug)
-    images = ProductImage.objects.filter(product=product)
+    images = product.p_images.all()
     rec_products = Product.objects.filter(collection=product.collection)  # products from same collection
     rec_products = Product.objects.exclude(slug=product.slug)
     return render(request, 'catalog/product_detail.html', {

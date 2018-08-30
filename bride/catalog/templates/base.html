@@ -113,7 +113,7 @@
                                         </li>
                                         -->
                                         {% for coll in collections %}
-                                            {% if coll.category.name == 'wedding_dress' %}
+                                            {% if coll.category.slug == 'wedding_dress' %}
                                                 <li class="nav-menu-item">
                                                     <a href="{% url 'catalog:product_list_coll' coll.category.slug coll.slug %}">
                                                     <span class="item_inner">
@@ -138,7 +138,7 @@
                                 <div class="inner">
                                     <ul>
                                         {% for coll in collections %}
-                                            {% if coll.category.name == 'evening_dress' %}
+                                            {% if coll.category.slug == 'evening_dress' %}
                                                 <li class="nav-menu-item">
                                                     <a href="{% url 'catalog:product_list_coll' coll.category.slug coll.slug %}">
                                                     <span class="item_inner">
