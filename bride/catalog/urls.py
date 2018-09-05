@@ -19,6 +19,7 @@ urlpatterns = [
     re_path(r'^contacts/contact_us/$', views.contact_us, name='contact_us'),
     re_path(r'^booking/$', views.booking, name='booking'),
     re_path(r'^booking/book/$', views.book_appoint, name='book_appoint'),
+    re_path(r'^search/$', views.ProductSearchListView.as_view(), name='search_plist'),
     re_path(r'^$', views.index, name='index'),
 ]
 

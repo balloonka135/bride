@@ -171,28 +171,28 @@
                 <div class="col-md-12">
                   <div class="carousel slide multi-item-carousel" id="theCarousel" style="height: 500px;">
                     <div class="carousel-inner" style="margin-left: 40px;">
-                      <div class="item active">
-                        <div class="col-xs-4"><a href="#1"><img src="{% static "img/f1.jpg" %}" class="img-responsive arr-img"></a>
-                        <!-- FIX HEADER BUG -->    
-                        <h3 class="img-caption">ROSE</h3></div>
-                      </div>
-                      <div class="item">
-                        <div class="col-xs-4"><a href="#1"><img src="{% static "img/f2.jpg" %}" class="img-responsive arr-img"></a></div>
-                      </div>
-                      <div class="item">
-                        <div class="col-xs-4"><a href="#1"><img src="{% static "img/f3.jpg" %}" class="img-responsive arr-img"></a></div>
-                      </div>
-                      <div class="item">
-                        <div class="col-xs-4"><a href="#1"><img src="{% static "img/f4.jpg" %}" class="img-responsive arr-img"></a></div>
-                      </div>
-                      <div class="item">
-                        <div class="col-xs-4"><a href="#1"><img src="{% static "img/f1.jpg" %}" class="img-responsive arr-img"></a></div>
-                      </div>
+
+                        <!-- products that are available -->
+                        {% for product in new_arr %}
+                            {% if forloop.first %}
+                                <div class="item active">
+                                    <div class="col-xs-4">
+                                        <a href="{{ product.get_absolute_url }}"><img src="{{ product.thumbnail.url }}" class="img-responsive arr-img"></a>
+                                    </div>
+                                </div>
+                            {% else %}
+                            {% if product.thumbnail %}
+                                <div class="item">
+                                    <div class="col-xs-4">
+                                        <a href="{{ product.get_absolute_url }}"><img src="{{ product.thumbnail.url }}" class="img-responsive arr-img"></a>
+                                    </div>
+                                </div>
+                            {% else %}
+                                <p>Image upload error</p>
+                            {% endif %}
+                            {% endif %}
+                        {% endfor %}
                       
-                      <!-- add  more items here -->
-                      
-                      
-                      <!--  Example item end -->
                     </div>
                     <a class="left carousel-control" href="#theCarousel" data-slide="prev" style="background-image: none;"><i class="glyphicon glyphicon-chevron-left"></i></a>
                     <a class="right carousel-control" href="#theCarousel" data-slide="next" style="background-image: none; "><i class="glyphicon glyphicon-chevron-right"></i></a>
@@ -260,26 +260,5 @@
             </div>
     </div>
 
-    <script>
-        // Instantiate the Bootstrap carousel
-        $('.multi-item-carousel').carousel({
-          interval: false
-        });
-
-        // for every slide in carousel, copy the next slide's item in the slide.
-        // Do the same for the next, next item.
-        $('.multi-item-carousel .item').each(function(){
-          var next = $(this).next();
-          if (!next.length) {
-            next = $(this).siblings(':first');
-          }
-          next.children(':first-child').clone().appendTo($(this));
-          
-          if (next.next().length>0) {
-            next.next().children(':first-child').clone().appendTo($(this));
-          } else {
-            $(this).siblings(':first').children(':first-child').clone().appendTo($(this));
-          }
-        });
-    </script>
+    
 {% endblock %}

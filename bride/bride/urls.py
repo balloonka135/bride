@@ -7,7 +7,8 @@ from django.views.generic import RedirectView
 urlpatterns = [
     re_path(r'^admin/', admin.site.urls),
     re_path(r'^$', RedirectView.as_view(url='/catalog/', permanent=True)),
-    re_path(r'^catalog/', include('catalog.urls', namespace='catalog'))
+    re_path(r'^catalog/', include('catalog.urls', namespace='catalog')),
+    re_path(r'^like/', include('like.urls', namespace='like')),
 ]
 
 if settings.DEBUG:

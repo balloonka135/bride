@@ -1,0 +1,138 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    {{ product.name }}
+{% endblock %}
+
+{% block content %}
+
+    <div class="container">
+        <div class="template-holder">
+            <div class="product-scope">
+                <div class="product-image-wrapper">
+                    <!--
+                    <div class="image-wrap">
+                        <a href="{% if product.image %}{{ product.image.url }}{% else %}{% static "img/no-image.jpg"%}{% endif %}" itemprop="image" class="main-image" title="{{ product.name }}">
+                            <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static "img/no-image.jpg"%}{% endif %}" alt="{{ product.name }}">
+                            
+                            <div class="mouse-zoom" style="display: none; z-index: 98; position: absolte; width: 113px; height: 160px; opacity: 0.5; left: 250px; top: 208px; background-position: -250px -280px;"></div>
+                        </a>
+                        <p>
+                            <a href="{% if product.image %}{{ product.image.url }}{% else %}{% static "img/no-image.jpg"%}{% endif %}" class="zoom-button">Click to Zoom</a>
+                        </p>
+                        
+                        <div class="thumbnails">
+                            <a href="{% if product.image %}{{ product.image.url }}{% else %}{% static "img/no-image.jpg"%}{% endif %}" class="zoom-gallery"><img src="{% if product.image %}{{ product.image.url }}{% else %}{% static "img/no-image.jpg"%}{% endif %}" alt="" class="shop-thumbnail"></a>
+                        </div>
+                    </div>
+                    -->
+                    
+                    <div class="container">
+                      <ul class="slides">
+                        {% for ig in images %}
+                            {% if ig.image %}
+                                <li id="slide{{ forloop.counter }}"><img src="{{ ig.image.url }}" alt="" class="zoom_pic" /></li>
+                            {% else %}
+                                <p>Image upload error</p>
+                            {% endif %}
+                        {% endfor %}
+                      </ul>
+
+                      <ul class="thumbnails">
+                        {% for ig in images %}
+                            {% if ig.image %}
+                                <li><a href="#slide{{ forloop.counter }}"><img src="{{ ig.image.url }}" /></a></li>
+                            {% else %}
+                                <p>Image upload error</p>
+                            {% endif %}
+                        {% endfor %}
+                      </ul>
+                    </div>
+
+                </div>
+
+                <div class="product-summary">
+                    <h2 class="">{{ product.name }}</h2>
+                    <hr class="product-hr">
+                    <div class="product-description">
+                        <p>{{ product.description | linebreaks }}</p>
+                    </div>
+
+                    {% if product.id not in like_context %}
+                        <!-- LIKE BUTTON -->
+                        <form action="{% url 'like:like_add' product.id %}" method="post">
+                            {{ cart_product_form }}
+                            {% csrf_token %}
+                            <div class="like-button-section">              
+                                <i class="fa-lg fa fa-heart"></i>              
+                                <input type="submit" value="Like" class="like-button">
+                            </div>
+                        </form>
+                    {% else %}
+                        <p>Already liked</p>
+                    {% endif %}
+
+                    <div class="details">
+                        <h3 class="product-header">Деталі</h3>
+                        <hr class="product-hr">
+                        <div class="details-list">
+                            <p class="detail-item"><strong>Силует: &emsp;</strong>{{ product.shape }}</p>
+                            <p class="detail-item"><strong>Тканини: &emsp;</strong>{{ product.fabric }}</p>
+                            <p class="detail-item"><strong>Стиль: &emsp;</strong>{{ product.style }}</p>
+                            <p class="detail-item"><strong>Тип застібки: &emsp;</strong>{{ product.fastener_type }}</p>
+                        </div>
+                    </div>
+
+                    <div class="button">
+                        <a href="{% url 'catalog:booking' %}" class="main-button" style="width: 300px; padding-bottom: 20px;">Запис на примірку</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    
+
+    <div class="arrivals">
+        <div class="container">
+            <div class="title-arrivals">
+                <h3 style="font-size: 34px;">You may also like</h3>
+            </div>
+            <div class="container related">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="carousel slide multi-item-carousel" id="theCarousel" style="height: 500px;" >
+                    <div class="carousel-inner" style="margin-left: 40px;">
+                        
+                        {% for product in related_products %}
+                            {% if forloop.first %}
+                                {% if product.thumbnail %}
+                                    <div class="item active">
+                                        <div class="col-xs-4">
+                                            <a href="{{ product.get_absolute_url }}"><img src="{{ product.thumbnail.url }}" class="img-responsive arr-img"></a>
+                                        </div>
+                                    </div>
+                                {% else %}
+                                    <p>Image upload error</p>
+                                {% endif %}
+                            {% else %}
+                                <div class="item">
+                                    <div class="col-xs-4">
+                                        <a href="{{ product.get_absolute_url }}"><img src="{{ product.thumbnail.url }}" class="img-responsive arr-img"></a>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                      
+                    </div>
+                    <a class="left carousel-control" href="#theCarousel" data-slide="prev" style="background-image: none;"><i class="glyphicon glyphicon-chevron-left"></i></a>
+                    <a class="right carousel-control" href="#theCarousel" data-slide="next" style="background-image: none; "><i class="glyphicon glyphicon-chevron-right"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+   
+{% endblock %}

@@ -114,7 +114,7 @@
 
             <div class="column2">
                 {% if collection %}
-                    <h3 class="dress-title">{{ collection.name }}</h3>
+                    <h3 class="dress-title">Колекція {{ collection.name }}</h3>
                 {% elif category.slug == 'wedding_dress' %}
                     <div class="term-description">
                         <h3 class="dress-title">Знайди свою ідеальну весільну сукню</h3>
@@ -126,31 +126,58 @@
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem molestiae facilis, harum aliquam iusto aliquid ut optio beatae accusamus ipsam cumque itaque voluptate eum blanditiis? Iusto nemo ad, quo amet.</p>
                     </div>
                 {% endif %}
+                
                 <ul class="products hover-type">
-                        {% for product in filter.qs %}
+                    {% for product in p_list %}
                         <li class="product-post">
                             <div class="product-section">
-                                <a href="{{ product.get_absolute_url }}">
-                                    <span class="image-wrapper">
+                                    <div class="image-wrapper">
                                         {% if product.thumbnail %}
-                                            <a href="{{ product.thumbnail.url }}"><img src="{{ product.thumbnail.url }}" alt=""></a>
+                                        <a href="{{ product.get_absolute_url }}"><img src="{{ product.thumbnail.url }}" alt=""></a>
                                         {% else %}
                                             <p>Image upload error</p>
                                         {% endif %}
-                                    </span>
-                                </a>
-                            </div>
-                            <div class="product-info-box">
-                                <a href="{{ product.get_absolute_url }}">
-                                    <span class="product-title">{{ product.name }}</span>
-                                </a>
-                                <div class="view-dress-button">
-                                    <a href="{{ product.get_absolute_url }}" class="button view-dress-button">View Dress</a>
+                                    </div>
+                                
+                            
+                                <div class="product-info-box">
+                                    <span class="product-title">
+                                    <a href="{{ product.get_absolute_url }}">
+                                        {{ product.name }}
+                                    </a></span>
+                                    <div class="view-dress-button">
+                                        <a href="{{ product.get_absolute_url }}" class="button view-dress-button">View Dress</a>
+                                    </div>
                                 </div>
                             </div>
                         </li>
-                        {% endfor %}
-                    
+                    {% endfor %}
+
+                    {% if p_list.has_other_pages %}
+                          <ul class="pagination custom">
+                            {% if p_list.has_previous %}
+                              <li><a href="?page={{ p_list.previous_page_number }}">&laquo;</a></li>
+                            {% else %}
+                              <li class="disabled"><span>&laquo;</span></li>
+                            {% endif %}
+                            {% for i in p_list.paginator.page_range %}
+                              {% if p_list.number == i %}
+                                <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+                              {% else %}
+                                {% if 'collection' in request.get_full_path %}
+                                    <li><a href="{{ request.get_full_path }}&page={{ i }}">{{ i }}</a></li>
+                                {% else %}
+                                    <li><a href="?page={{ i }}">{{ i }}</a></li>
+                                {% endif %}
+                              {% endif %}
+                            {% endfor %}
+                            {% if p_list.has_next %}
+                              <li><a href="?page={{ p_list.next_page_number }}">&raquo;</a></li>
+                            {% else %}
+                              <li class="disabled"><span>&raquo;</span></li>
+                            {% endif %}
+                          </ul>
+                    {% endif %}
                 </ul>
             </div>
         </div>

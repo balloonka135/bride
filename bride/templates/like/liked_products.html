@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% block title %}
+  Like products
+{% endblock %}
+
+
+{% block content %}
+    <div class="aboutpage-header">
+        <div class="title-area">
+            <div class="container">
+                <h1>Liked products</h1>
+                <hr class="hr-aboutpage" >
+            </div>
+        </div>
+    </div>
+
+    <div class="like_products" style="margin-top: 100px;">
+        <div class="container">
+                <ul class="products hover-type" style="list-style: none;">
+                    {% for item in like %}
+                        {% with product=item.product %}
+                        <li class="product-post">
+                            <div class="product-section" style="height: 450px;">
+                                    <div class="image-wrapper">
+                                        {% if product.thumbnail %}
+                                        <a href="{{ product.get_absolute_url }}"><img src="{{ product.thumbnail.url }}" alt=""></a>
+                                        {% else %}
+                                            <p>Image upload error</p>
+                                        {% endif %}
+                                    </div>
+                                
+                            
+                                <div class="product-info-box">
+                                    <span class="product-title">
+                                    <a href="{{ product.get_absolute_url }}">
+                                        {{ product.name }}
+                                    </a></span>
+                                    <div class="view-dress-button">
+                                        <a href="{{ product.get_absolute_url }}" class="button view-dress-button">View Dress</a>
+                                    </div>
+
+                                    <div class="dislike-button">
+                                        <a href="{% url 'like:like_remove' product.id %}" style="">
+                                            <i class="fa-lg far fa-heart"></i>
+                                            <span>Dislike</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        {% endwith %}
+                    {% endfor %}
+                </ul>
+        </div>
+
+        <a href="{% url 'catalog:product_list_cat' 'wedding_dress' %}" class="main-button" style="margin-left: 550px;">Каталог</a>
+    </div>
+
+    <style type="text/css">
+        .dislike-button {
+            bottom: 170px;
+            position: relative;
+        }
+
+        .dislike-button a {
+            color: white;
+            font-family:'proximanova-regular'; 
+            text-decoration: none;
+            opacity: .4;
+        }
+
+        .dislike-button a:hover {
+            opacity: 1;
+            color: rgb(224,178,139);
+        }
+    </style>
+{% endblock %}

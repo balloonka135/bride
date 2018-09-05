@@ -1,0 +1,30 @@
+{% load static %}
+{% load endless %}
+
+
+
+
+{% paginate entries %}
+{% for product in filter.qs %}
+                        <li class="product-post">
+                            <div class="product-section">
+                                <a href="{{ product.get_absolute_url }}">
+                                    <span class="image-wrapper">
+                                        {% if product.thumbnail %}
+                                            <a href="{{ product.thumbnail.url }}"><img src="{{ product.thumbnail.url }}" alt=""></a>
+                                        {% else %}
+                                            <p>Image upload error</p>
+                                        {% endif %}
+                                    </span>
+                                </a>
+                            </div>
+                            <div class="product-info-box">
+                                <a href="{{ product.get_absolute_url }}">
+                                    <span class="product-title">{{ product.name }}</span>
+                                </a>
+                                <div class="view-dress-button">
+                                    <a href="{{ product.get_absolute_url }}" class="button view-dress-button">View Dress</a>
+                                </div>
+                            </div>
+                        </li>
+{% endfor %}

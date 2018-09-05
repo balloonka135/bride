@@ -11,11 +11,11 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
-from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
 
 
 # Quick-start development settings - unsuitable for production
@@ -28,10 +28,6 @@ SECRET_KEY = '+kpbsg)yy#lqlm6gu3ic_%7@2$m^_g6g0qdkvk1w8$gc@jg#e$'
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
-TEMPLATE_CONTEXT_PROCESSORS += (
-    'django.core.context_processors.request',
-)
 
 
 # Application definition
@@ -46,6 +42,7 @@ INSTALLED_APPS = [
     'widget_tweaks',
     'endless_pagination',
     'catalog',
+    'like',
 ]
 
 MIDDLEWARE = [
@@ -63,7 +60,7 @@ ROOT_URLCONF = 'bride.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [TEMPLATE_DIR, ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -71,6 +68,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'like.context_processors.like',
             ],
         },
     },
@@ -139,7 +137,9 @@ EMAIL_HOST_PASSWORD = 'adelini2018'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
-# server = smtplib.SMTP('smtp.gmail.com', EMAIL_PORT)
-# server.ehlo()
-# server.starttls()
-# server.login(EMAIL_HOST_USER, EMAIL_HOST_PASSWORD)
+
+LIKE_SESSION_ID = 'like'
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+
+
+

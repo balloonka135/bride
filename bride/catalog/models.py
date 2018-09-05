@@ -3,6 +3,10 @@ from __future__ import unicode_literals
 
 from django.db import models
 from django.urls import reverse
+import sys
+from PIL import Image
+from io import BytesIO
+from django.core.files.uploadedfile import InMemoryUploadedFile
 # from djongo import models
 
 
@@ -101,6 +105,20 @@ class ProductImage(models.Model):
     img_id = models.IntegerField(default=1, verbose_name='Image num')
     image = models.ImageField(upload_to='products/%Y/%m/%d', blank=True, verbose_name='Product image')
     product = models.ForeignKey('Product', related_name='p_images', on_delete=models.SET_NULL, null=True)
+
+    def save(self, *args, **kwargs):
+        if not self.id:
+            self.image = self.compressImage(self.image)
+        super(ProductImage, self).save(*args, **kwargs)
+
+    def compressImage(self, image):
+        imageTemp = Image.open(image)
+        outputIoStream = BytesIO()
+        imageTempResized = imageTemp.resize((1020,573)) 
+        imageTemp.save(outputIoStream, format='JPEG', quality=60)
+        outputIoStream.seek(0)
+        image = InMemoryUploadedFile(outputIoStream, 'ImageField', "%s.jpg" % self.product.name.split('.')[0], 'image/jpeg', sys.getsizeof(outputIoStream), None)
+        return image
 
     def __str__(self):
         return self.product.name + '_' + str(self.img_id)

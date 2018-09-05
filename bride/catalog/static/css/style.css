@@ -10,44 +10,17 @@
 }
 
 @font-face {
-    font-family: 'ProximaNova-Black';
-    src: url(/Users/irinanazarchuk/Documents/code/bride_project/bride/catalog/static/fonts/ProximaNova-Black.otf);
+    font-family: 'proximanova_light';
+    src: url('../fonts/proximanova_light.otf')
+    format("truetype"), local('proximanova_light');
 }
 
 @font-face {
-    font-family: 'ProximaNova-Bold';
-    src: url(/Users/irinanazarchuk/Documents/code/bride_project/bride/catalog/static/fonts/proximanova-bold.otf);
+    font-family: 'proximanova_reg';
+    src: url('../fonts/proximanova_reg.otf')
+    format("truetype"), local('proximanova_reg');
 }
 
-@font-face {
-    font-family: 'ProximaNova-ExtraBold';
-    src: url(/Users/irinanazarchuk/Documents/code/bride_project/bride/catalog/static/fonts/proximanova-extrabold.otf);
-}
-
-@font-face {
-    font-family: 'ProximaNova-Light';
-    src: url(/Users/irinanazarchuk/Documents/code/bride_project/bride/catalog/static/fonts/proximanova-light.otf);
-}
-
-@font-face {
-    font-family: 'proximanova-regular';
-    src: url(/Users/irinanazarchuk/Documents/code/bride_project/bride/catalog/static/fonts/proximanova-regular.otf);
-}
-
-@font-face {
-    font-family: 'Couture-Bold';
-    src: url(/Users/irinanazarchuk/Documents/code/bride_project/bride/catalog/static/fonts/couture-bld.otf);
-}
-
-@font-face {
-    font-family: 'Panton-BlackCaps';
-    src: url(/Users/irinanazarchuk/Documents/code/bride_project/bride/catalog/static/fonts/Panton-BlackCaps.otf);
-}
-
-@font-face {
-    font-family: 'Panton-LightCaps';
-    src: url(/Users/irinanazarchuk/Documents/code/bride_project/bride/catalog/static/fonts/Panton-LightCaps.otf);
-}
 
 @import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800,900&subset=cyrillic');
 @import url('https://fonts.googleapis.com/css?family=Playfair+Display:400,700,900&subset=cyrillic');
@@ -217,7 +190,7 @@ li.menu-item {
 .item_text {
     color: rgb(224,178,139);
     opacity: .8;
-    font-family:'proximanova-regular';
+    font-family:'proximanova_reg';
     font-size: 16px; 
 }
 
@@ -325,21 +298,22 @@ li.menu-item {
     margin-top: 50px;
 }
 
-.header-widget a {
+.header-widget a, .header-widget div {
     text-decoration: none;
-    padding-right: 30px;
+    padding-right: 0px;
     display: inline-block;
     color: rgb(224,178,139);  /* main beige color */
     opacity: .8;
 }
 
-.header-widget a span {
+.header-widget a span, .header-widget div span {
     display: block;
     opacity: 0;
-    font-family:'proximanova-regular';
+    font-family:'proximanova_reg';
+    margin-top: 5px;
 }
 
-.header-widget a:hover, .header-widget a span:hover {
+.header-widget a:hover, .header-widget a span:hover, .header-widget div:hover, .header-widget div span:hover {
     opacity: 1;
     transition: all 0.3s ease-in-out 0s;
 }
@@ -367,7 +341,7 @@ li.menu-item {
 
 .header-right-from-logo-widget {
     z-index: 1;
-    right: 20px;
+    right: 0px;
 }
 
 .icon-link {
@@ -437,7 +411,7 @@ hr.hr-style {
 .copyright-text {
     text-align: center;
     color: rgb(38,37,37);
-    font-family:'proximanova-regular';
+    font-family:'proximanova_reg';
     opacity: .5;
 
 }
@@ -746,7 +720,6 @@ hr.hr-style {
     }
     @media all and (transform-3d), (-webkit-transform-3d) {
       > .item{
-        // use your favourite prefixer here
         transition: 500ms ease-in-out left;
         transition: 500ms ease-in-out all;
         backface-visibility: visible;
@@ -819,10 +792,11 @@ hr.hr-style {
 }
 
 .one-half-first p {
-    width: 450px;
+    width: 400px;
     font-family: 'Cormorant Garamond', serif;
-    font-size: 24px;
+    font-size: 20px;
     line-height: 2;
+    text-align: justify;
 }
 
 .one-half-second {
@@ -1401,12 +1375,16 @@ hr.hr-aboutpage {
     font-size: 18px;
 }
 
+.catalog-list {
+    margin-top: 170px;
+}
+
 .column1 {
     float: left;
     width: 20%;
     padding-top: 20px;
     position: relative;
-    margin-left: 50px;
+    margin-left: 30px;
 }
 
 .filter-option h4 {
@@ -1442,7 +1420,7 @@ hr.hr-aboutpage {
 }
 
 .checkbox-filter {
-    font-family: 'ProximaNova-Light';
+    font-family: 'proximanova_light';
     font-size: 16px;
     font-weight: lighter;
 }
@@ -1469,8 +1447,8 @@ hr.hr-aboutpage {
 .column2 {
     float: right;
     position: relative;
-    margin-right: 30px;
-    width: 70%;
+    margin-right: 0px;
+    width: 75%;
 }
 
 .dress-title {
@@ -1478,6 +1456,7 @@ hr.hr-aboutpage {
     font-style: italic;
     font-weight: 600;
     font-size: 32px;
+    margin-bottom: 30px;
 }
 
 .term-description p {
@@ -1485,9 +1464,324 @@ hr.hr-aboutpage {
     font-size: 18px;
     width: 800px;
     margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+
+.column2 ul {
+    list-style: none;
+}
+
+.product-section {
+    float: left;
+    margin-right: 20px;
+    margin-bottom: 30px;
+}
+
+.image-wrapper {
+    background-color: black;
 }
 
 .product-section img {
+    width: 300px;
+    transition: .5s ease; 
+}
+
+.product-section:hover img {
+    opacity: .4;
+}
+
+.product-info-box {
+    transition: .5s ease;
+    opacity: 0;
+    position: relative;
+    left: 150px;
+    bottom: 150px;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.product-section:hover .product-info-box {
+    opacity: 1;
+}
+
+.product-title a {
+    text-decoration: none;
+    color: white;
+    font-family: 'Playfair Display SC', serif;
+    font-size: 24px;
+    font-weight: 700;
+
+}
+
+.view-dress-button {
+    margin-top: 170px;
+}
+
+.view-dress-button a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 70px;
+    border: 1px solid white; 
+    opacity: .5;
+    /* background-color: rgb(38,37,37); */
+    box-shadow: 0px 0px 24px -4px rgba(0,0,0,0.75);
+    font-family: 'proximanova_reg';
+}
+
+.view-dress-button a:hover {
+    color: rgb(224,178,139);
+    opacity: 1;
+}
+
+.product-title {
+    color: white;
+}
+
+.pagination {
+    display: inline-block;
+    position: absolute;
+    right: 450px;
+    margin-top: 500px;
+}
+
+.pagination.custom > li > a, 
+.pagination.custom > li > span {
+    background: none;
+    border: none;
+    color: #a8a9ab;
+    font-size: 16px;
+    font-family: 'proximanova_reg';
+}
+
+.pagination.custom > li > a:hover, 
+.pagination.custom > li > a:focus, 
+.pagination.custom > li > span:hover,
+.pagination.custom > li > span:focus,
+.pagination.custom > li.active > a,
+.pagination.custom > li.active > span {
+    background: none;
+    border: none;
+    color: #000;
+    font-size: 16px;
+    font-family: 'proximanova_reg';
+}
+
+
+/* PRODUCT DETAIL */
+.title-outer {
+    height: 50px;
+}
+
+.product-scope {
+    margin-top: 100px;
+}
+
+
+/* product gallery */
+
+.product-image-wrapper {
+    width: 50%;
+    position: relative;
+    float: left;
+    left: 100px;
+}
+
+.product-image-wrapper ul {
+    list-style: none;
+}
+
+.thumbnails {
+  display: flex;
+  flex-direction: row;
+  line-height: 0;
+  float: left;
+}
+
+.thumbnails li {
+  flex: auto;
+}
+
+.thumbnails a {
+  display: block;
+}
+
+.thumbnails img {
+  width: 178px;
+  height: 20vmin;
+  margin-right: 9px;
+  object-fit: cover;
+  object-position: top;
+}
+
+.slides {
+  overflow: hidden;
+  width: 75vmin;
+  height: 100vmin;
+}
+
+.slides li {
+  width: 75vmin;
+  height: 100vmin;
+  position: absolute;
+  z-index: 1;
+}
+
+.slides img {
+  height: 100vmin;
+  object-fit: cover;
+  object-position: top;
+}
+
+
+.slides li:target {
+  z-index: 3;
+  -webkit-animation: slide 3s;
+}
+
+.slides li:not(:target) {
+  -webkit-animation: hidden 1s 1;
+}
+
+/*
+@keyframes slide {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+@keyframes hidden {
+  0% {
+    z-index: 2;
+  }
+  100% {
+    z-index: 2;
+  }
+}
+*/
+
+@keyframes slide {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+
+.product-summary {
+    width: 50%;
+    float: right;
+    position: relative;
+    left: 100px;
+    margin-top: 100px;
+}
+
+.product-summary h2
+{
+    font-family: 'Playfair Display SC', serif;
+    font-weight: 700;
+    font-size: 30px;
+    color: rgb(38,37,37);
+}
+
+.product-description {
+    width: 400px;
+    text-align: justify;
+    margin-top: 40px;
+
+}
+
+.product-description p, .details-list p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    color: rgb(38,37,37);
+}
+
+.details {
+    margin-top: 70px;
+}
+
+.details h3 {
+    font-family: 'Playfair Display SC', serif;
+    font-weight: 700;
+    color: rgb(38,37,37);
+}
+
+
+hr.product-hr {
+    width: 400px;
+    background-color: rgb(38,37,37);
+    height: 1px;
+    opacity: .5;
+}
+
+.like-button {
+    background-color: white;
+    border: none;
+    color: rgb(38,37,37);;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 22px;
+    font-weight: 400;
+    font-family: 'Cormorant Garamond', serif;
+    padding-left: 10px;
+}
+
+
+
+
+
+/* LIKED PAGE */
+.like_products ul {
+    list-style: none;
+}
+
+.like-button-section {
+    margin-top: 30px;
+    opacity: .7;
+}
+
+.like-button-section:hover {
+    opacity: 1;
+}
+
+
+
+/* SEARCH */
+.search-block {
+    display: none;
+    position: absolute;
+    float: right;
+    right: 50px;
+    top: 90px;
+}
+
+#search input[type="text"] {
+    background: url(search-dark.png) no-repeat 10px 6px #444;
+    border: 0 none;
+    font: bold 12px Arial,Helvetica,Sans-serif;
+    color: rgb(224,178,139);;
+    width: 150px;
+    padding: 6px 15px 6px 35px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    text-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 3px rgba(0, 0, 0, 0.2) inset;
+    -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 3px rgba(0, 0, 0, 0.2) inset;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 3px rgba(0, 0, 0, 0.2) inset;
+    -webkit-transition: all 0.7s ease 0s;
+    -moz-transition: all 0.7s ease 0s;
+    -o-transition: all 0.7s ease 0s;
+    transition: all 0.7s ease 0s;
+    }
+
+#search input[type="text"]:focus {
     width: 200px;
 }
 
