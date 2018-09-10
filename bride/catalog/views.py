@@ -71,8 +71,7 @@ def product_list(request, category_slug=None, collection_slug=None):
 
 
     page = request.GET.get('page', 1)
-    # paginator = Paginator(products, 12)
-    paginator = Paginator(collection_filter.qs, 3)
+    paginator = Paginator(collection_filter.qs, 12)
     try:
         p_list = paginator.page(page)
     except PageNotAnInteger:

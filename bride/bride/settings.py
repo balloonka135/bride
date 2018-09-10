@@ -27,7 +27,7 @@ with open(os.path.join(KEY_DIR, 'secret_key.txt')) as f:
     SECRET_KEY = f.read().strip()
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
     'localhost',
@@ -134,6 +134,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'assets/')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
@@ -150,5 +151,5 @@ SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 
 
 STATICFILES_DIRS = (
-    os.path.join('static'),
+    os.path.join(BASE_DIR, 'static'),
 )

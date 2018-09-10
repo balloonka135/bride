@@ -4,7 +4,6 @@
 }
 
 @media only screen and (min-width : 1200px) {
-
     .container { width: 1330px; } 
 
 }
@@ -92,16 +91,10 @@ font-size: 48px;
     text-align: left;
 }
 
-.carousel-caption h3 {
-    
-}
-
-.carousel-caption p {
-
-}
-
-#cc-1 {
-
+@media screen and (max-width: 992px) {
+    .carousel-control {
+        display: none;
+    }
 }
 
 
@@ -127,6 +120,7 @@ header {
     position: absolute;
     right: 0;
 }
+
 
 ul li {
     transition: all 0.5s ease;
@@ -176,6 +170,13 @@ li.menu-item {
     padding-bottom: 10px;
     vertical-align: middle;
     height: 50px;
+}
+
+@media (max-width : 767px) { 
+    li.menu-item {
+        width: 50%;
+        height: auto;
+    }
 }
 
 .header-menu li:hover a:before {
@@ -338,6 +339,13 @@ li.menu-item {
     height: 100%;
     position: absolute;
 }
+
+@media (max-width: 767px) {
+    .header-left-from-logo-widget, .header-right-from-logo-widget { 
+        display: none;
+    } 
+}
+
 
 .header-right-from-logo-widget {
     z-index: 1;
@@ -1188,7 +1196,7 @@ hr.hr-aboutpage {
 
 .contacts-info {
     position: relative;
-    left: 200px;
+    margin-left: 200px;
 }
 
 .contacts-info h2 {
@@ -1476,6 +1484,7 @@ hr.hr-aboutpage {
     float: left;
     margin-right: 20px;
     margin-bottom: 30px;
+    height: 470px;
 }
 
 .image-wrapper {
@@ -1750,6 +1759,38 @@ hr.product-hr {
     opacity: 1;
 }
 
+.dislike-button {
+    bottom: 170px;
+    position: relative;
+}
+
+.dislike-button a {
+    color: white;
+    font-family:'proximanova-regular'; 
+    text-decoration: none;
+    opacity: .4;
+    background: none; 
+}
+
+button.like-button {
+    background:none!important;
+    color: white;
+    border:none; 
+    padding:0!important;
+    font-family:'proximanova-regular';
+    cursor: pointer;
+    text-decoration: none;
+    bottom: 170px;
+    position: relative;
+    opacity: .4;
+    font-size: 14px;
+}
+
+.dislike-button a:hover, button.like-button:hover {
+    opacity: 1;
+    color: rgb(224,178,139);
+}
+
 
 
 /* SEARCH */
@@ -1784,10 +1825,6 @@ hr.product-hr {
 #search input[type="text"]:focus {
     width: 200px;
 }
-
-
-
-
 
 
 

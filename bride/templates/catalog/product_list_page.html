@@ -25,6 +25,13 @@
                                 <div class="view-dress-button">
                                     <a href="{{ product.get_absolute_url }}" class="button view-dress-button">View Dress</a>
                                 </div>
+
+                                <div class="dislike-button">
+                                    <a href="{% url 'like:like_add' product.id %}" style="">
+                                        <i class="fa-lg far fa-heart"></i>
+                                        <span>Like</span>
+                                    </a>
+                                </div>
                             </div>
                         </li>
 {% endfor %}

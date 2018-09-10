@@ -148,7 +148,21 @@
                                     <div class="view-dress-button">
                                         <a href="{{ product.get_absolute_url }}" class="button view-dress-button">View Dress</a>
                                     </div>
+
+                                    <!-- wrap i, span inside input!  -->
+                                    <form action="{% url 'like:like_add' product.id %}" method="post">
+                                        
+                                        {% csrf_token %}
+                                        
+                                            <button type="submit" class="like-button">
+                                                <i class="fa-lg far fa-heart"></i>
+                                                Like
+                                            </button>
+                                        
+                                    </form>
+
                                 </div>
+
                             </div>
                         </li>
                     {% endfor %}
