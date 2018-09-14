@@ -114,16 +114,16 @@
 
             <div class="column2">
                 {% if collection %}
-                    <h3 class="dress-title">Колекція {{ collection.name }}</h3>
+                    <h3 class="dress-title">Колекція {{ collection.name }} від {{ collection.brand }}</h3>
                 {% elif category.slug == 'wedding_dress' %}
                     <div class="term-description">
                         <h3 class="dress-title">Знайди свою ідеальну весільну сукню</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem molestiae facilis, harum aliquam iusto aliquid ut optio beatae accusamus ipsam cumque itaque voluptate eum blanditiis? Iusto nemo ad, quo amet.</p>
+                        <p>Розкішні сукні вражають вишуканістю, граціозністю, витонченістю.<br>Свіжі рішення, бездоганні силуети, витончені деталі підкорюють серця наречених.</p>
                     </div>
                 {% else %}
                     <div class="term-description">
                         <h3 class="dress-title">Знайди свою ідеальну вечірню сукню</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem molestiae facilis, harum aliquam iusto aliquid ut optio beatae accusamus ipsam cumque itaque voluptate eum blanditiis? Iusto nemo ad, quo amet.</p>
+                        <p>Розкішні сукні вражають вишуканістю, граціозністю, витонченістю.<br>Свіжі рішення, бездоганні силуети, витончені деталі підкорюють серця наречених..</p>
                     </div>
                 {% endif %}
                 
@@ -146,7 +146,7 @@
                                         {{ product.name }}
                                     </a></span>
                                     <div class="view-dress-button">
-                                        <a href="{{ product.get_absolute_url }}" class="button view-dress-button">View Dress</a>
+                                        <a href="{{ product.get_absolute_url }}" class="button view-dress-button">Перегляд</a>
                                     </div>
 
                                     <!-- wrap i, span inside input!  -->

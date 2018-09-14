@@ -10,7 +10,7 @@
 
 @font-face {
     font-family: 'proximanova_light';
-    src: url('../fonts/proximanova_light.otf')
+    src: url('../fonts/proximanova_light.ttf')
     format("truetype"), local('proximanova_light');
 }
 
@@ -599,7 +599,7 @@ hr.hr-style {
 .content-text p {
     color: rgb(224,178,139);
     font-family:'Cormorant Garamond', serif; 
-    font-size: 18px; 
+    font-size: 22px; 
 }
 
 /* MAIN BUTTON */
@@ -795,16 +795,17 @@ hr.hr-style {
     font-family: 'Playfair Display SC', serif;
     font-style: italic;
     font-weight: 700;
-    font-size: 40px;
+    font-size: 35px;
     color: rgb(38,37,37);
 }
 
 .one-half-first p {
     width: 400px;
     font-family: 'Cormorant Garamond', serif;
-    font-size: 20px;
+    font-size: 23px;
     line-height: 2;
     text-align: justify;
+    margin-top: 50px; 
 }
 
 .one-half-second {
@@ -972,6 +973,7 @@ hr.hr-aboutpage {
     height: 1px;
     position: relative;
     left: 480px; 
+    margin-bottom: 50px;
 }
 
 .about-section {
@@ -1011,10 +1013,11 @@ hr.hr-aboutpage {
     font-family: 'Cormorant Garamond', serif;
     font-size: 24px;
     line-height: 2;
+    text-align: justify;
 }
 
 .why-choose-section {
-    margin-top: 80px;
+    margin-top: 120px;
     color: rgb(38,37,37);
 }
 
@@ -1023,7 +1026,7 @@ hr.hr-aboutpage {
     font-family: 'Playfair Display SC', serif;
     font-weight: 700;
     font-size: 30px;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
 }
 
 .why-choose-section h3 {
@@ -1037,6 +1040,7 @@ hr.hr-aboutpage {
 .about-info-block {
     margin-top: 70px;
     height: 550px;
+    margin-bottom: 200px;
 }
 
 .about-info-block .one-third {
@@ -1106,7 +1110,6 @@ hr.hr-aboutpage {
 
 /* DESIGNERS */
 .designers-quote {
-    margin-top: 50px;
     margin-left: 415px;
     width: 500px;
 }
@@ -1127,6 +1130,7 @@ hr.hr-aboutpage {
 .lucesposa-block {
     margin-top: 100px;
     height: 200px;
+    margin-bottom: 50px;
 }
 
 .lucesposa-block p {
@@ -1134,6 +1138,7 @@ hr.hr-aboutpage {
     float: right;
     right: 200px;
     margin-top: 30px;
+    text-align: justify;
 }
 
 #logo1 {
@@ -1145,6 +1150,7 @@ hr.hr-aboutpage {
 
 .vasylk-block {
     height: 200px;
+    margin-bottom: 30px;
 }
 
 .vasylk-block p {
@@ -1152,13 +1158,15 @@ hr.hr-aboutpage {
     float: left;
     left: 250px;
     margin-top: 30px;
+    text-align: justify;
 }
 
 #logo2 {
     position: absolute;
     float: right;
     right: 360px;
-    height: 200px; 
+    height: 200px;
+    margin-top: 30px;
 }
 
 .marybride-block {
@@ -1170,6 +1178,7 @@ hr.hr-aboutpage {
     float: right;
     right: 200px;
     margin-top: 120px;
+    text-align: justify;
 }
 
 #logo3 {

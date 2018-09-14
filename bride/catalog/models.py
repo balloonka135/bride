@@ -50,6 +50,7 @@ class Style(models.Model):
 
 class Collection(models.Model):
     name = models.CharField(max_length=200, db_index=True, verbose_name='Collection')
+    brand = models.CharField(max_length=200, db_index=True, verbose_name='Brand', default='')
     # category = models.EmbeddedModelField(model_container=Category)
     category = models.ForeignKey('Category', related_name='collections', on_delete=models.SET_NULL, null=True, blank=True)
     slug = models.SlugField(max_length=200, db_index=True, unique=True)
@@ -104,7 +105,7 @@ class Product(models.Model):
 class ProductImage(models.Model):
     img_id = models.IntegerField(default=1, verbose_name='Image num')
     image = models.ImageField(upload_to='products/%Y/%m/%d', blank=True, verbose_name='Product image')
-    product = models.ForeignKey('Product', related_name='p_images', on_delete=models.SET_NULL, null=True)
+    product = models.ForeignKey('Product', related_name='p_images', on_delete=models.CASCADE, null=True)
 
     def save(self, *args, **kwargs):
         if not self.id:
